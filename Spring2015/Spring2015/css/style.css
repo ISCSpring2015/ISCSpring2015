@@ -1,0 +1,50 @@
+﻿.mainC{ margin:0; padding:0}
+
+
+
+h5{ font-size:13px}
+h2{ font-size:30px}
+
+/*header{ height:100px; background:#005b7d; width:100%; display:block}*/
+
+header{ background:#005b7d; width:100%; display:block}
+
+footer{ height:75px; background:#005b7d; width:100%; display:block; position:relative; bottom:0}
+
+
+input[type="checkbox"]{ margin-top:3px}
+
+
+.zeroP{ padding:0 !important;}
+.zeroM{ margin:0 !important;}
+.tenMT{ margin-top:10px}
+.twentyMT{ margin-top:20px}
+.thirtyMT{ margin-top:30px}
+.fiftyMT{ margin-top:50px}
+.sixtyMT{ margin-top:60px}
+.tenPT{ padding-top:10px}
+
+
+.textC{ text-align:center}
+
+a.blueText{ color:rgba(7,142,228,1.00)}
+a.blueText:hover{ text-decoration:none}
+a.remember{ font-size:12px; color:#666}
+a.remember:hover{color:rgba(7,142,228,1.00); text-decoration:none}
+
+
+.highlight {
+padding: 9px 14px;
+margin-bottom: 14px;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
+border-radius: 4px;
+}
+
+.copyright{ padding:10px; color:#000; }
+
+
+
+
+
+
