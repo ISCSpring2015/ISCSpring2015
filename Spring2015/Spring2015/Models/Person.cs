@@ -25,11 +25,7 @@ namespace Spring2015.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
-        public System.DateTime Dob { get; set; }
         public string Phonenumber1 { get; set; }
-        public string Phonenumber1type { get; set; }
-        public string Phonenumber2 { get; set; }
-        public string Phonenumber2type { get; set; }
         public string Email { get; set; }
     }
 }

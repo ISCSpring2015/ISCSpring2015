@@ -320,6 +320,7 @@
     <Content Include="Views\SkillSet\Details.cshtml" />
     <Content Include="Views\SkillSet\Edit.cshtml" />
     <Content Include="Views\SkillSet\Index.cshtml" />
+    <Content Include="Views\Person\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,9 +25,9 @@ namespace Spring2015.Controllers
         {
             if((ModelState.IsValid))
             {
-               if(IsValid(pid.Email,pid.Password))
+                if (IsValid(pid.Username, pid.Password))
                {
-                   FormsAuthentication.SetAuthCookie(pid.Email,false);
+                   FormsAuthentication.SetAuthCookie(pid.Username, false);
                    Session["UserValid"] = true;
                    return RedirectToAction("Index","Curriculum");
                }
@@ -63,11 +63,7 @@ namespace Spring2015.Controllers
                 sysUser.St = pid.St;
                 sysUser.Zip = pid.Zip;
                 sysUser.Username = pid.Username;
-                sysUser.Dob = pid.Dob;
                 sysUser.Phonenumber1 = pid.Phonenumber1;
-                sysUser.Phonenumber1type = pid.Phonenumber1type;
-                sysUser.Phonenumber2 = pid.Phonenumber2;
-                sysUser.Phonenumber2type = pid.Phonenumber2type;
                 sysUser.Email = pid.Email;
                 pid.Password = encrPass;
                 pid.PasswordSalt = crypto.Salt;
@@ -81,11 +77,17 @@ namespace Spring2015.Controllers
             return View(pid);
         }
 
-        private bool IsValid(string Email,string Password)
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("LogIn", "Person");
+        }
+
+        private bool IsValid(string Username, string Password)
         {
             var crypto = new SimpleCrypto.PBKDF2();
             bool isValid = false;
-            var pid = db.People.FirstOrDefault(u => u.Email == Email);
+            var pid = db.People.FirstOrDefault(u => u.Username == Username);
             if(pid!=null)
             {
                 if(pid.Password==crypto.Compute(Password,pid.PasswordSalt))

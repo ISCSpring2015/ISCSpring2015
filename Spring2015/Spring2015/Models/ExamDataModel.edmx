@@ -58,10 +58,10 @@
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
-            <PropertyRef Name="Email" />
+            <PropertyRef Name="Username" />
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="PasswordSalt" Type="nvarchar" MaxLength="300" Nullable="false" />
         </EntityType>
@@ -101,11 +101,7 @@
           <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="PasswordSalt" Type="nvarchar" MaxLength="300" />
-          <Property Name="Dob" Type="date" Nullable="false" />
           <Property Name="Phonenumber1" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Phonenumber1type" Type="nvarchar" MaxLength="6" Nullable="false" />
-          <Property Name="Phonenumber2" Type="nvarchar" MaxLength="20" />
-          <Property Name="Phonenumber2type" Type="nvarchar" MaxLength="6" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tblSections">
@@ -471,12 +467,12 @@
         </EntityType>
         <EntityType Name="Login">
           <Key>
-            <PropertyRef Name="Email" />
+            <PropertyRef Name="Username" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="OutcomeinBK2">
           <Key>
@@ -519,11 +515,7 @@
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordSalt" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Phonenumber1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phonenumber1type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phonenumber2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Phonenumber2type" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Section">
@@ -917,8 +909,8 @@
           <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="DATABASE_EDTSModel.Login">
               <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
               </MappingFragment>
@@ -961,11 +953,7 @@
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-                <ScalarProperty Name="Dob" ColumnName="Dob" />
                 <ScalarProperty Name="Phonenumber1" ColumnName="Phonenumber1" />
-                <ScalarProperty Name="Phonenumber1type" ColumnName="Phonenumber1type" />
-                <ScalarProperty Name="Phonenumber2" ColumnName="Phonenumber2" />
-                <ScalarProperty Name="Phonenumber2type" ColumnName="Phonenumber2type" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>

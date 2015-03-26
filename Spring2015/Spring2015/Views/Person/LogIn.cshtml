@@ -12,15 +12,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Login</h4>
         <hr />
         @Html.ValidationSummary(true,"Login failed. check your login details")
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
             </div>
         </div>
 
@@ -34,7 +33,10 @@
         
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="LogIn" class="btn btn-default" />
+                @*<div style="text-align: center;">
+                    @Html.ActionLink("Go To Skills", "Skills", new { id = 1 }, new { @class = "btn btn-primary", @type = "button" })
+                </div>*@
+                <input type="submit" value="LogIn" class="btn btn-primary" />
             </div>
         </div>
     </div>
