@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
@@ -23,10 +23,7 @@ namespace Spring2015.Models
     
         public int CurriculumID { get; set; }
         public string Name { get; set; }
-        public string Shortname { get; set; }
-        public Nullable<System.DateTime> InitialDate { get; set; }
-        public Nullable<System.DateTime> ReleaseDate { get; set; }
-        public Nullable<System.DateTime> CloseDate { get; set; }
+        public string ShortName { get; set; }
         public string Purpose { get; set; }
     
         public virtual ICollection<BKLevel1> BKLevel1 { get; set; }

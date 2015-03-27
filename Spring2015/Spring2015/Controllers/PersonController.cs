@@ -13,7 +13,7 @@ namespace Spring2015.Controllers
     {
        //
         // GET: /Person/
-        ExamContext db = new ExamContext();
+        ExamDBContext db = new ExamDBContext();
 
         [HttpGet]
         public ActionResult LogIn()

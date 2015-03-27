@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;

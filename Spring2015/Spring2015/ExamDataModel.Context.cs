@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ExamContext : DbContext
+    public partial class ExamDBContext : DbContext
     {
-        public ExamContext()
-            : base("name=ExamContext")
+        public ExamDBContext()
+            : base("name=ExamDBContext")
         {
         }
     
@@ -30,14 +30,14 @@ namespace Spring2015.Models
         public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Curriculum> Curricula { get; set; }
         public virtual DbSet<Login> Logins { get; set; }
-        public virtual DbSet<OutcomeinBK2> OutcomeinBK2 { get; set; }
         public virtual DbSet<Outcome> Outcomes { get; set; }
+        public virtual DbSet<OutcomeinBK2> OutcomeinBK2 { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<Skill> Skills { get; set; }
         public virtual DbSet<SkillSet> SkillSets { get; set; }
         public virtual DbSet<SubSkill> SubSkills { get; set; }
-        public virtual DbSet<SubskillsinOutcome> SubskillsinOutcomes { get; set; }
         public virtual DbSet<SubskillsinBk2> SubskillsinBk2 { get; set; }
+        public virtual DbSet<SubskillsinOutcome> SubskillsinOutcomes { get; set; }
     }
 }

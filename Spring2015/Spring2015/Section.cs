@@ -7,27 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SubSkill
+    public partial class Section
     {
-        public SubSkill()
+        public Section()
         {
-            this.SubskillsinBk2 = new HashSet<SubskillsinBk2>();
-            this.SubskillsinOutcomes = new HashSet<SubskillsinOutcome>();
+            this.Courses = new HashSet<Course>();
         }
     
-        public int SubskillsID { get; set; }
-        public Nullable<int> SkillsID { get; set; }
+        public int SectionID { get; set; }
+        public Nullable<int> CurriculumID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
+        public string Purpose { get; set; }
     
-        public virtual Skill Skill { get; set; }
-        public virtual ICollection<SubskillsinBk2> SubskillsinBk2 { get; set; }
-        public virtual ICollection<SubskillsinOutcome> SubskillsinOutcomes { get; set; }
-        public virtual SubskillsinBk2 tblSubskillsinBk2 { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
+        public virtual Curriculum Curriculum { get; set; }
     }
 }

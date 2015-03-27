@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SubskillsinBk2
+    public partial class Login
     {
-        public int SubskillsBk2ID { get; set; }
-        public Nullable<int> SubskillsID { get; set; }
-        public Nullable<int> BkLevel2ID { get; set; }
-    
-        public virtual BKLevel2 BKLevel2 { get; set; }
-        public virtual SubSkill SubSkill { get; set; }
-        public virtual SubSkill tblSubSkill { get; set; }
+        public int UserID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string PasswordSalt { get; set; }
     }
 }

@@ -1,72 +1,48 @@
-﻿@model Spring2015.Models.Curriculum
+﻿@model Spring2015.Curriculum
 
 @{
-   
+    //ViewBag.Title = "Delete";
 }
 
+<h2>Delete</h2>
 
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Delete Curriculum</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Shortname)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Shortname)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.InitialDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.InitialDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.ReleaseDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CloseDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CloseDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Purpose)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Purpose)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
-    </div>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Delete Curriculum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purpose)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

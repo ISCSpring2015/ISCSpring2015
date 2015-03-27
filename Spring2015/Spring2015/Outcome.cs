@@ -7,24 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SkillSet
+    public partial class Outcome
     {
-        public SkillSet()
+        public Outcome()
         {
-            this.Skills = new HashSet<Skill>();
+            this.OutcomeinBK2 = new HashSet<OutcomeinBK2>();
+            this.SubskillsinOutcomes = new HashSet<SubskillsinOutcome>();
         }
     
-        public int SkillsetID { get; set; }
+        public int OutcomeID { get; set; }
+        public Nullable<int> CourseID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<int> CurriculumID { get; set; }
+        public Nullable<int> DepthOfKnowledge { get; set; }
     
-        public virtual Curriculum Curriculum { get; set; }
-        public virtual ICollection<Skill> Skills { get; set; }
+        public virtual Course Course { get; set; }
+        public virtual ICollection<OutcomeinBK2> OutcomeinBK2 { get; set; }
+        public virtual ICollection<SubskillsinOutcome> SubskillsinOutcomes { get; set; }
     }
 }

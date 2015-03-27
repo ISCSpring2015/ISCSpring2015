@@ -7,30 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Outcome
+    public partial class SubSkill
     {
-        public Outcome()
+        public SubSkill()
         {
-            this.OutcomeinBK2 = new HashSet<OutcomeinBK2>();
             this.SubskillsinOutcomes = new HashSet<SubskillsinOutcome>();
         }
     
-        public int OutcomeID { get; set; }
-        public Nullable<int> CourseID { get; set; }
+        public int SubskillsID { get; set; }
+        public Nullable<int> SkillID { get; set; }
+        public Nullable<int> OutcomeID { get; set; }
+        public Nullable<int> BKLevel2Id { get; set; }
+        public Nullable<int> SkillSetNum1 { get; set; }
+        public Nullable<int> SkillNum2 { get; set; }
+        public Nullable<int> SubSkillNum3 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<System.DateTime> InitialDate { get; set; }
-        public Nullable<System.DateTime> ReleaseDate { get; set; }
-        public Nullable<System.DateTime> CloseDate { get; set; }
-        public string Purpose { get; set; }
+        public string JobAdWords { get; set; }
     
-        public virtual Course Course { get; set; }
-        public virtual ICollection<OutcomeinBK2> OutcomeinBK2 { get; set; }
+        public virtual Skill Skill { get; set; }
+        public virtual SubskillsinBk2 SubskillsinBk2 { get; set; }
         public virtual ICollection<SubskillsinOutcome> SubskillsinOutcomes { get; set; }
     }
 }

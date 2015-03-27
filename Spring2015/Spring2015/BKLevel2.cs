@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
@@ -16,21 +16,21 @@ namespace Spring2015.Models
     {
         public BKLevel2()
         {
-            this.tblSubskillsinBk2 = new HashSet<SubskillsinBk2>();
-            this.tblOutcomeinBK2 = new HashSet<OutcomeinBK2>();
+            this.SubskillsinBk2 = new HashSet<SubskillsinBk2>();
+            this.OutcomeinBK2 = new HashSet<OutcomeinBK2>();
         }
     
         public int BKLevel2ID { get; set; }
         public Nullable<int> BKLevel1ID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<int> InitialDate { get; set; }
-        public Nullable<int> ReleaseDate { get; set; }
-        public Nullable<int> CloseDate { get; set; }
+        public Nullable<int> NumberLevel1 { get; set; }
+        public Nullable<int> NumberLevel2 { get; set; }
         public string Purpose { get; set; }
     
-        public virtual BKLevel1 tblBKLevel1 { get; set; }
-        public virtual ICollection<SubskillsinBk2> tblSubskillsinBk2 { get; set; }
-        public virtual ICollection<OutcomeinBK2> tblOutcomeinBK2 { get; set; }
+        public virtual BKLevel1 BKLevel1 { get; set; }
+        public virtual BKLevel1 BKLevel11 { get; set; }
+        public virtual ICollection<SubskillsinBk2> SubskillsinBk2 { get; set; }
+        public virtual ICollection<OutcomeinBK2> OutcomeinBK2 { get; set; }
     }
 }

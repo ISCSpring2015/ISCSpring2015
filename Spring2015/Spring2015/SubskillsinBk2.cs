@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Spring2015.Models
+namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SubskillsinOutcome
+    public partial class SubskillsinBk2
     {
-        public int SubskillsinoutcomeID { get; set; }
-        public Nullable<int> OutcomeID { get; set; }
+        public int SubskillsBk2ID { get; set; }
         public Nullable<int> SubskillsID { get; set; }
+        public Nullable<int> BkLevel2ID { get; set; }
     
-        public virtual Outcome Outcome { get; set; }
+        public virtual BKLevel2 BKLevel2 { get; set; }
         public virtual SubSkill SubSkill { get; set; }
     }
 }

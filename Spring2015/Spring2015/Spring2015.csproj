@@ -168,75 +168,75 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BKLevel1.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BKLevel2.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\SkillSetController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\BKLevel1.cs">
+    <Compile Include="Course.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BKLevel2.cs">
+    <Compile Include="Curriculum.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Course.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Curriculum.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ExamDataModel.Context.cs">
+    <Compile Include="ExamDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExamDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ExamDataModel.cs">
+    <Compile Include="ExamDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ExamDataModel.Designer.cs">
+    <Compile Include="ExamDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ExamDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Login.cs">
+    <Compile Include="Outcome.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Outcome.cs">
+    <Compile Include="OutcomeinBK2.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OutcomeinBK2.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Person.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Section.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Skill.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SkillSet.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SubSkill.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SubskillsinBk2.cs">
-      <DependentUpon>ExamDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SubskillsinOutcome.cs">
+    <Compile Include="Person.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Section.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Skill.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SkillSet.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="SubSkill.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubskillsinBk2.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubskillsinOutcome.cs">
+      <DependentUpon>ExamDataModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -252,19 +252,19 @@
     <Content Include="Images\logo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ExamDataModel.edmx">
+    <EntityDeploy Include="ExamDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ExamDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ExamDataModel.Context.tt">
+    <Content Include="ExamDataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ExamDataModel.edmx</DependentUpon>
       <LastGenOutput>ExamDataModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ExamDataModel.edmx.diagram">
+    <Content Include="ExamDataModel.edmx.diagram">
       <DependentUpon>ExamDataModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\ExamDataModel.tt">
+    <Content Include="ExamDataModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ExamDataModel.edmx</DependentUpon>
       <LastGenOutput>ExamDataModel.cs</LastGenOutput>
@@ -306,21 +306,19 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
     <Content Include="Views\Person\LogIn.cshtml" />
-    <Content Include="Views\Person\Create.cshtml">
-      <BrowseToURL>~/Person/Create</BrowseToURL>
-    </Content>
+    <Content Include="Views\Person\LogOut.cshtml" />
+    <Content Include="Views\Curriculum\Index.cshtml" />
     <Content Include="Views\Curriculum\Create.cshtml" />
     <Content Include="Views\Curriculum\Delete.cshtml" />
     <Content Include="Views\Curriculum\Details.cshtml" />
     <Content Include="Views\Curriculum\Edit.cshtml" />
-    <Content Include="Views\Curriculum\Index.cshtml" />
+    <Content Include="Views\SkillSet\Index.cshtml" />
     <Content Include="Views\SkillSet\Create.cshtml" />
     <Content Include="Views\SkillSet\Delete.cshtml" />
     <Content Include="Views\SkillSet\Details.cshtml" />
     <Content Include="Views\SkillSet\Edit.cshtml" />
-    <Content Include="Views\SkillSet\Index.cshtml" />
-    <Content Include="Views\Person\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
