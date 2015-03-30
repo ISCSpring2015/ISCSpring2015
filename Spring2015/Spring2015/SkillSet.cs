@@ -22,8 +22,8 @@ namespace Spring2015
         public int SkillsetID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public int skillSetNum1 { get; set; }
-        public int CurriculumID { get; set; }
+        public Nullable<int> skillSetNum1 { get; set; }
+        public Nullable<int> CurriculumID { get; set; }
     
         public virtual Curriculum Curriculum { get; set; }
         public virtual ICollection<Skill> Skills { get; set; }

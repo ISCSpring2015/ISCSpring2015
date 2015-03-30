@@ -12,7 +12,7 @@ namespace Spring2015.Controllers
 {
     public class CurriculumController : Controller
     {
-        private ExamdbContext db = new ExamdbContext();
+        private ExamDBContext db = new ExamDBContext();
 
         // GET: /Curriculum/
         public ActionResult Index()

@@ -29,6 +29,7 @@ namespace Spring2015
         public string Scope { get; set; }
         public string Topics { get; set; }
         public string Discussion { get; set; }
+        public string Purpose { get; set; }
     
         public virtual ICollection<Outcome> Outcomes { get; set; }
         public virtual Section Section { get; set; }

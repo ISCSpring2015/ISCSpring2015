@@ -15,8 +15,8 @@ namespace Spring2015
     public partial class SubskillsinBk2
     {
         public int SubskillsBk2ID { get; set; }
-        public int SubskillsID { get; set; }
-        public int BkLevel2ID { get; set; }
+        public Nullable<int> SubskillsID { get; set; }
+        public Nullable<int> BkLevel2ID { get; set; }
     
         public virtual BKLevel2 BKLevel2 { get; set; }
         public virtual SubSkill SubSkill { get; set; }

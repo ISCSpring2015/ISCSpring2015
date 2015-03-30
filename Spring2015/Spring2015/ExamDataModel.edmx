@@ -10,21 +10,23 @@
             <PropertyRef Name="BKLevel1ID" />
           </Key>
           <Property Name="BKLevel1ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CurriculumID" Type="int" Nullable="false" />
-          <Property Name="NumberLevel1" Type="int" Nullable="false" />
+          <Property Name="CurriculumID" Type="int" />
+          <Property Name="NumberLevel" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="ShortName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Purpose" Type="varchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="tblBKLevel2">
           <Key>
             <PropertyRef Name="BKLevel2ID" />
           </Key>
           <Property Name="BKLevel2ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BKLevel1ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="64" Nullable="false" />
-          <Property Name="NumberLevel1" Type="int" Nullable="false" />
-          <Property Name="NumberLevel2" Type="int" Nullable="false" />
+          <Property Name="BKLevel1ID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="256" />
+          <Property Name="ShortName" Type="varchar" MaxLength="64" />
+          <Property Name="NumberLevel1" Type="int" />
+          <Property Name="NumberLevel2" Type="int" />
+          <Property Name="Purpose" Type="varchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="tblCourse">
           <Key>
@@ -32,23 +34,24 @@
           </Key>
           <Property Name="CourseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SectionID" Type="int" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="ShortName" Type="varchar" MaxLength="128" />
           <Property Name="CatalogCopy" Type="varchar" MaxLength="2056" />
           <Property Name="Prerequisites" Type="varchar" MaxLength="128" />
-          <Property Name="YearInCurriculum" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="YearInCurriculum" Type="varchar" MaxLength="5" />
           <Property Name="Scope" Type="varchar" MaxLength="1024" />
           <Property Name="Topics" Type="varchar" MaxLength="1024" />
           <Property Name="Discussion" Type="varchar" MaxLength="2056" />
+          <Property Name="Purpose" Type="varchar" MaxLength="2056" />
         </EntityType>
         <EntityType Name="tblCurriculum">
           <Key>
             <PropertyRef Name="CurriculumID" />
           </Key>
           <Property Name="CurriculumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Purpose" Type="varchar" MaxLength="512" />
+          <Property Name="Name" Type="varchar" MaxLength="128" />
+          <Property Name="ShortName" Type="varchar" MaxLength="50" />
+          <Property Name="Purpose" Type="varchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
@@ -64,9 +67,9 @@
             <PropertyRef Name="OutcomeID" />
           </Key>
           <Property Name="OutcomeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CourseID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="128" />
+          <Property Name="ShortName" Type="varchar" MaxLength="128" />
           <Property Name="DepthOfKnowledge" Type="int" />
         </EntityType>
         <EntityType Name="tblOutcomeinBK2">
@@ -74,8 +77,8 @@
             <PropertyRef Name="OutcomeBK2ID" />
           </Key>
           <Property Name="OutcomeBK2ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OutcomeID" Type="int" Nullable="false" />
-          <Property Name="BKLevelID" Type="int" Nullable="false" />
+          <Property Name="OutcomeID" Type="int" />
+          <Property Name="BKLevelID" Type="int" />
         </EntityType>
         <EntityType Name="tblPerson">
           <Key>
@@ -100,9 +103,9 @@
             <PropertyRef Name="SectionID" />
           </Key>
           <Property Name="SectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CurriculumID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="CurriculumID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="128" />
+          <Property Name="ShortName" Type="varchar" MaxLength="64" />
           <Property Name="Purpose" Type="varchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="tblSkill">
@@ -110,9 +113,9 @@
             <PropertyRef Name="SkillID" />
           </Key>
           <Property Name="SkillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SkillsetID" Type="int" Nullable="false" />
-          <Property Name="SkillSetNum1" Type="int" Nullable="false" />
-          <Property Name="SkillNum2" Type="int" Nullable="false" />
+          <Property Name="SkillsetID" Type="int" />
+          <Property Name="SkillSetNum1" Type="int" />
+          <Property Name="SkillNum2" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="128" />
           <Property Name="ShortName" Type="varchar" MaxLength="64" />
         </EntityType>
@@ -121,24 +124,24 @@
             <PropertyRef Name="SkillsetID" />
           </Key>
           <Property Name="SkillsetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="skillSetNum1" Type="int" Nullable="false" />
-          <Property Name="CurriculumID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="ShortName" Type="varchar" MaxLength="100" />
+          <Property Name="skillSetNum1" Type="int" />
+          <Property Name="CurriculumID" Type="int" />
         </EntityType>
         <EntityType Name="tblSubSkills">
           <Key>
             <PropertyRef Name="SubskillsID" />
           </Key>
           <Property Name="SubskillsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SkillID" Type="int" Nullable="false" />
-          <Property Name="OutcomeID" Type="int" Nullable="false" />
-          <Property Name="BKLevel2Id" Type="int" Nullable="false" />
-          <Property Name="SkillSetNum1" Type="int" Nullable="false" />
-          <Property Name="SkillNum2" Type="int" Nullable="false" />
-          <Property Name="SubSkillNum3" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
-          <Property Name="ShortName" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="SkillID" Type="int" />
+          <Property Name="OutcomeID" Type="int" />
+          <Property Name="BKLevel2Id" Type="int" />
+          <Property Name="SkillSetNum1" Type="int" />
+          <Property Name="SkillNum2" Type="int" />
+          <Property Name="SubSkillNum3" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="256" />
+          <Property Name="ShortName" Type="varchar" MaxLength="128" />
           <Property Name="JobAdWords" Type="varchar" MaxLength="1024" />
         </EntityType>
         <EntityType Name="tblSubskillsinBk2">
@@ -146,19 +149,31 @@
             <PropertyRef Name="SubskillsBk2ID" />
           </Key>
           <Property Name="SubskillsBk2ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SubskillsID" Type="int" Nullable="false" />
-          <Property Name="BkLevel2ID" Type="int" Nullable="false" />
+          <Property Name="SubskillsID" Type="int" />
+          <Property Name="BkLevel2ID" Type="int" />
         </EntityType>
         <EntityType Name="tblSubskillsinOutcome">
           <Key>
             <PropertyRef Name="SubskillsinoutcomeID" />
           </Key>
           <Property Name="SubskillsinoutcomeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="OutcomeID" Type="int" Nullable="false" />
-          <Property Name="SubskillsID" Type="int" Nullable="false" />
+          <Property Name="OutcomeID" Type="int" />
+          <Property Name="SubskillsID" Type="int" />
         </EntityType>
+        <Association Name="FK__tblBKLeve__Numbe__20C1E124">
+          <End Role="tblBKLevel1" Type="Self.tblBKLevel1" Multiplicity="0..1" />
+          <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBKLevel1">
+              <PropertyRef Name="BKLevel1ID" />
+            </Principal>
+            <Dependent Role="tblBKLevel2">
+              <PropertyRef Name="NumberLevel1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Fk_BKLevel2_curriculumid">
-          <End Role="tblBKLevel1" Type="Self.tblBKLevel1" Multiplicity="1" />
+          <End Role="tblBKLevel1" Type="Self.tblBKLevel1" Multiplicity="0..1" />
           <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel1">
@@ -170,7 +185,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_course_id">
-          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="1" />
+          <End Role="tblCourse" Type="Self.tblCourse" Multiplicity="0..1" />
           <End Role="tblOutcome" Type="Self.tblOutcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCourse">
@@ -194,7 +209,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_CurriculumID">
-          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="0..1" />
           <End Role="tblBKLevel1" Type="Self.tblBKLevel1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -206,7 +221,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_skill">
-          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="0..1" />
           <End Role="tblSkillSet" Type="Self.tblSkillSet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -218,7 +233,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Skills_SkillSetID">
-          <End Role="tblSkillSet" Type="Self.tblSkillSet" Multiplicity="1" />
+          <End Role="tblSkillSet" Type="Self.tblSkillSet" Multiplicity="0..1" />
           <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSkillSet">
@@ -230,7 +245,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subskills_SkillsID">
-          <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="1" />
+          <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="0..1" />
           <End Role="tblSubSkills" Type="Self.tblSubSkills" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSkill">
@@ -242,7 +257,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_SubskillsinBk2_BkLevel2ID">
-          <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="1" />
+          <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="0..1" />
           <End Role="tblSubskillsinBk2" Type="Self.tblSubskillsinBk2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel2">
@@ -266,7 +281,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblOutcomeinBK2_BKLevelID">
-          <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="1" />
+          <End Role="tblBKLevel2" Type="Self.tblBKLevel2" Multiplicity="0..1" />
           <End Role="tblOutcomeinBK2" Type="Self.tblOutcomeinBK2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel2">
@@ -278,7 +293,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblOutcomeinBK2_OutcomeID">
-          <End Role="tblOutcome" Type="Self.tblOutcome" Multiplicity="1" />
+          <End Role="tblOutcome" Type="Self.tblOutcome" Multiplicity="0..1" />
           <End Role="tblOutcomeinBK2" Type="Self.tblOutcomeinBK2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblOutcome">
@@ -290,7 +305,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblSections_CurriculumID">
-          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="Self.tblCurriculum" Multiplicity="0..1" />
           <End Role="tblSection" Type="Self.tblSection" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -302,7 +317,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="tblSubskillsinoutcome_OutcomeID">
-          <End Role="tblOutcome" Type="Self.tblOutcome" Multiplicity="1" />
+          <End Role="tblOutcome" Type="Self.tblOutcome" Multiplicity="0..1" />
           <End Role="tblSubskillsinOutcome" Type="Self.tblSubskillsinOutcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblOutcome">
@@ -314,7 +329,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="tblSubskillsinoutcome_SubskillsID">
-          <End Role="tblSubSkills" Type="Self.tblSubSkills" Multiplicity="1" />
+          <End Role="tblSubSkills" Type="Self.tblSubSkills" Multiplicity="0..1" />
           <End Role="tblSubskillsinOutcome" Type="Self.tblSubskillsinOutcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSubSkills">
@@ -340,6 +355,10 @@
           <EntitySet Name="tblSubSkills" EntityType="Self.tblSubSkills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSubskillsinBk2" EntityType="Self.tblSubskillsinBk2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSubskillsinOutcome" EntityType="Self.tblSubskillsinOutcome" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblBKLeve__Numbe__20C1E124" Association="Self.FK__tblBKLeve__Numbe__20C1E124">
+            <End Role="tblBKLevel1" EntitySet="tblBKLevel1" />
+            <End Role="tblBKLevel2" EntitySet="tblBKLevel2" />
+          </AssociationSet>
           <AssociationSet Name="Fk_BKLevel2_curriculumid" Association="Self.Fk_BKLevel2_curriculumid">
             <End Role="tblBKLevel1" EntitySet="tblBKLevel1" />
             <End Role="tblBKLevel2" EntitySet="tblBKLevel2" />
@@ -407,11 +426,13 @@
             <PropertyRef Name="BKLevel1ID" />
           </Key>
           <Property Name="BKLevel1ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CurriculumID" Type="Int32" Nullable="false" />
-          <Property Name="NumberLevel1" Type="Int32" Nullable="false" />
+          <Property Name="CurriculumID" Type="Int32" />
+          <Property Name="NumberLevel" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BKLevel2" Relationship="Self.Fk_BKLevel2_curriculumid" FromRole="tblBKLevel1" ToRole="tblBKLevel2" />
+          <Property Name="Purpose" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BKLevel2" Relationship="Self.FK__tblBKLeve__Numbe__20C1E124" FromRole="tblBKLevel1" ToRole="tblBKLevel2" />
+          <NavigationProperty Name="BKLevel21" Relationship="Self.Fk_BKLevel2_curriculumid" FromRole="tblBKLevel1" ToRole="tblBKLevel2" />
           <NavigationProperty Name="Curriculum" Relationship="Self.Fk_CurriculumID" FromRole="tblBKLevel1" ToRole="tblCurriculum" />
         </EntityType>
         <EntityType Name="BKLevel2">
@@ -419,12 +440,14 @@
             <PropertyRef Name="BKLevel2ID" />
           </Key>
           <Property Name="BKLevel2ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BKLevel1ID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NumberLevel1" Type="Int32" Nullable="false" />
-          <Property Name="NumberLevel2" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BKLevel1" Relationship="Self.Fk_BKLevel2_curriculumid" FromRole="tblBKLevel2" ToRole="tblBKLevel1" />
+          <Property Name="BKLevel1ID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="NumberLevel1" Type="Int32" />
+          <Property Name="NumberLevel2" Type="Int32" />
+          <Property Name="Purpose" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BKLevel1" Relationship="Self.FK__tblBKLeve__Numbe__20C1E124" FromRole="tblBKLevel2" ToRole="tblBKLevel1" />
+          <NavigationProperty Name="BKLevel11" Relationship="Self.Fk_BKLevel2_curriculumid" FromRole="tblBKLevel2" ToRole="tblBKLevel1" />
           <NavigationProperty Name="SubskillsinBk2" Relationship="Self.Fk_SubskillsinBk2_BkLevel2ID" FromRole="tblBKLevel2" ToRole="tblSubskillsinBk2" />
           <NavigationProperty Name="OutcomeinBK2" Relationship="Self.Fk_tblOutcomeinBK2_BKLevelID" FromRole="tblBKLevel2" ToRole="tblOutcomeinBK2" />
         </EntityType>
@@ -434,14 +457,15 @@
           </Key>
           <Property Name="CourseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SectionID" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="CatalogCopy" Type="String" MaxLength="2056" FixedLength="false" Unicode="false" />
           <Property Name="Prerequisites" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="YearInCurriculum" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YearInCurriculum" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Scope" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
           <Property Name="Topics" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
           <Property Name="Discussion" Type="String" MaxLength="2056" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="String" MaxLength="2056" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Outcomes" Relationship="Self.fk_course_id" FromRole="tblCourse" ToRole="tblOutcome" />
           <NavigationProperty Name="Section" Relationship="Self.Fk_Course_SectionID" FromRole="tblCourse" ToRole="tblSection" />
         </EntityType>
@@ -450,9 +474,9 @@
             <PropertyRef Name="CurriculumID" />
           </Key>
           <Property Name="CurriculumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Purpose" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BKLevel1" Relationship="Self.Fk_CurriculumID" FromRole="tblCurriculum" ToRole="tblBKLevel1" />
           <NavigationProperty Name="SkillSets" Relationship="Self.fk_skill" FromRole="tblCurriculum" ToRole="tblSkillSet" />
           <NavigationProperty Name="Sections" Relationship="Self.Fk_tblSections_CurriculumID" FromRole="tblCurriculum" ToRole="tblSection" />
@@ -471,9 +495,9 @@
             <PropertyRef Name="OutcomeID" />
           </Key>
           <Property Name="OutcomeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CourseID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="DepthOfKnowledge" Type="Int32" />
           <NavigationProperty Name="Course" Relationship="Self.fk_course_id" FromRole="tblOutcome" ToRole="tblCourse" />
           <NavigationProperty Name="OutcomeinBK2" Relationship="Self.Fk_tblOutcomeinBK2_OutcomeID" FromRole="tblOutcome" ToRole="tblOutcomeinBK2" />
@@ -484,8 +508,8 @@
             <PropertyRef Name="OutcomeBK2ID" />
           </Key>
           <Property Name="OutcomeBK2ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OutcomeID" Type="Int32" Nullable="false" />
-          <Property Name="BKLevelID" Type="Int32" Nullable="false" />
+          <Property Name="OutcomeID" Type="Int32" />
+          <Property Name="BKLevelID" Type="Int32" />
           <NavigationProperty Name="BKLevel2" Relationship="Self.Fk_tblOutcomeinBK2_BKLevelID" FromRole="tblOutcomeinBK2" ToRole="tblBKLevel2" />
           <NavigationProperty Name="Outcome" Relationship="Self.Fk_tblOutcomeinBK2_OutcomeID" FromRole="tblOutcomeinBK2" ToRole="tblOutcome" />
         </EntityType>
@@ -512,9 +536,9 @@
             <PropertyRef Name="SectionID" />
           </Key>
           <Property Name="SectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CurriculumID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CurriculumID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="Purpose" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Courses" Relationship="Self.Fk_Course_SectionID" FromRole="tblSection" ToRole="tblCourse" />
           <NavigationProperty Name="Curriculum" Relationship="Self.Fk_tblSections_CurriculumID" FromRole="tblSection" ToRole="tblCurriculum" />
@@ -524,9 +548,9 @@
             <PropertyRef Name="SkillID" />
           </Key>
           <Property Name="SkillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SkillsetID" Type="Int32" Nullable="false" />
-          <Property Name="SkillSetNum1" Type="Int32" Nullable="false" />
-          <Property Name="SkillNum2" Type="Int32" Nullable="false" />
+          <Property Name="SkillsetID" Type="Int32" />
+          <Property Name="SkillSetNum1" Type="Int32" />
+          <Property Name="SkillNum2" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="ShortName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SkillSet" Relationship="Self.FK_Skills_SkillSetID" FromRole="tblSkill" ToRole="tblSkillSet" />
@@ -537,10 +561,10 @@
             <PropertyRef Name="SkillsetID" />
           </Key>
           <Property Name="SkillsetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="skillSetNum1" Type="Int32" Nullable="false" />
-          <Property Name="CurriculumID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="skillSetNum1" Type="Int32" />
+          <Property Name="CurriculumID" Type="Int32" />
           <NavigationProperty Name="Curriculum" Relationship="Self.fk_skill" FromRole="tblSkillSet" ToRole="tblCurriculum" />
           <NavigationProperty Name="Skills" Relationship="Self.FK_Skills_SkillSetID" FromRole="tblSkillSet" ToRole="tblSkill" />
         </EntityType>
@@ -549,14 +573,14 @@
             <PropertyRef Name="SubskillsID" />
           </Key>
           <Property Name="SubskillsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SkillID" Type="Int32" Nullable="false" />
-          <Property Name="OutcomeID" Type="Int32" Nullable="false" />
-          <Property Name="BKLevel2Id" Type="Int32" Nullable="false" />
-          <Property Name="SkillSetNum1" Type="Int32" Nullable="false" />
-          <Property Name="SkillNum2" Type="Int32" Nullable="false" />
-          <Property Name="SubSkillNum3" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SkillID" Type="Int32" />
+          <Property Name="OutcomeID" Type="Int32" />
+          <Property Name="BKLevel2Id" Type="Int32" />
+          <Property Name="SkillSetNum1" Type="Int32" />
+          <Property Name="SkillNum2" Type="Int32" />
+          <Property Name="SubSkillNum3" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
           <Property Name="JobAdWords" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Skill" Relationship="Self.FK_Subskills_SkillsID" FromRole="tblSubSkills" ToRole="tblSkill" />
           <NavigationProperty Name="SubskillsinBk2" Relationship="Self.Fk_SubskillsinBk2_SubskillsID" FromRole="tblSubSkills" ToRole="tblSubskillsinBk2" />
@@ -567,8 +591,8 @@
             <PropertyRef Name="SubskillsBk2ID" />
           </Key>
           <Property Name="SubskillsBk2ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubskillsID" Type="Int32" Nullable="false" />
-          <Property Name="BkLevel2ID" Type="Int32" Nullable="false" />
+          <Property Name="SubskillsID" Type="Int32" />
+          <Property Name="BkLevel2ID" Type="Int32" />
           <NavigationProperty Name="BKLevel2" Relationship="Self.Fk_SubskillsinBk2_BkLevel2ID" FromRole="tblSubskillsinBk2" ToRole="tblBKLevel2" />
           <NavigationProperty Name="SubSkill" Relationship="Self.Fk_SubskillsinBk2_SubskillsID" FromRole="tblSubskillsinBk2" ToRole="tblSubSkills" />
         </EntityType>
@@ -577,13 +601,25 @@
             <PropertyRef Name="SubskillsinoutcomeID" />
           </Key>
           <Property Name="SubskillsinoutcomeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OutcomeID" Type="Int32" Nullable="false" />
-          <Property Name="SubskillsID" Type="Int32" Nullable="false" />
+          <Property Name="OutcomeID" Type="Int32" />
+          <Property Name="SubskillsID" Type="Int32" />
           <NavigationProperty Name="Outcome" Relationship="Self.tblSubskillsinoutcome_OutcomeID" FromRole="tblSubskillsinOutcome" ToRole="tblOutcome" />
           <NavigationProperty Name="SubSkill" Relationship="Self.tblSubskillsinoutcome_SubskillsID" FromRole="tblSubskillsinOutcome" ToRole="tblSubSkills" />
         </EntityType>
+        <Association Name="FK__tblBKLeve__Numbe__20C1E124">
+          <End Role="tblBKLevel1" Type="DATABASE_EDTSModel.BKLevel1" Multiplicity="0..1" />
+          <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBKLevel1">
+              <PropertyRef Name="BKLevel1ID" />
+            </Principal>
+            <Dependent Role="tblBKLevel2">
+              <PropertyRef Name="NumberLevel1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Fk_BKLevel2_curriculumid">
-          <End Role="tblBKLevel1" Type="DATABASE_EDTSModel.BKLevel1" Multiplicity="1" />
+          <End Role="tblBKLevel1" Type="DATABASE_EDTSModel.BKLevel1" Multiplicity="0..1" />
           <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel1">
@@ -595,7 +631,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_CurriculumID">
-          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="0..1" />
           <End Role="tblBKLevel1" Type="DATABASE_EDTSModel.BKLevel1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -607,7 +643,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_SubskillsinBk2_BkLevel2ID">
-          <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="1" />
+          <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="0..1" />
           <End Role="tblSubskillsinBk2" Type="DATABASE_EDTSModel.SubskillsinBk2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel2">
@@ -619,7 +655,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblOutcomeinBK2_BKLevelID">
-          <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="1" />
+          <End Role="tblBKLevel2" Type="DATABASE_EDTSModel.BKLevel2" Multiplicity="0..1" />
           <End Role="tblOutcomeinBK2" Type="DATABASE_EDTSModel.OutcomeinBK2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblBKLevel2">
@@ -631,7 +667,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_course_id">
-          <End Role="tblCourse" Type="DATABASE_EDTSModel.Course" Multiplicity="1" />
+          <End Role="tblCourse" Type="DATABASE_EDTSModel.Course" Multiplicity="0..1" />
           <End Role="tblOutcome" Type="DATABASE_EDTSModel.Outcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCourse">
@@ -655,7 +691,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_skill">
-          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="0..1" />
           <End Role="tblSkillSet" Type="DATABASE_EDTSModel.SkillSet" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -667,7 +703,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblSections_CurriculumID">
-          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="1" />
+          <End Role="tblCurriculum" Type="DATABASE_EDTSModel.Curriculum" Multiplicity="0..1" />
           <End Role="tblSection" Type="DATABASE_EDTSModel.Section" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCurriculum">
@@ -679,7 +715,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Fk_tblOutcomeinBK2_OutcomeID">
-          <End Role="tblOutcome" Type="DATABASE_EDTSModel.Outcome" Multiplicity="1" />
+          <End Role="tblOutcome" Type="DATABASE_EDTSModel.Outcome" Multiplicity="0..1" />
           <End Role="tblOutcomeinBK2" Type="DATABASE_EDTSModel.OutcomeinBK2" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblOutcome">
@@ -691,7 +727,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="tblSubskillsinoutcome_OutcomeID">
-          <End Role="tblOutcome" Type="DATABASE_EDTSModel.Outcome" Multiplicity="1" />
+          <End Role="tblOutcome" Type="DATABASE_EDTSModel.Outcome" Multiplicity="0..1" />
           <End Role="tblSubskillsinOutcome" Type="DATABASE_EDTSModel.SubskillsinOutcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblOutcome">
@@ -703,7 +739,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Skills_SkillSetID">
-          <End Role="tblSkillSet" Type="DATABASE_EDTSModel.SkillSet" Multiplicity="1" />
+          <End Role="tblSkillSet" Type="DATABASE_EDTSModel.SkillSet" Multiplicity="0..1" />
           <End Role="tblSkill" Type="DATABASE_EDTSModel.Skill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSkillSet">
@@ -715,7 +751,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Subskills_SkillsID">
-          <End Role="tblSkill" Type="DATABASE_EDTSModel.Skill" Multiplicity="1" />
+          <End Role="tblSkill" Type="DATABASE_EDTSModel.Skill" Multiplicity="0..1" />
           <End Role="tblSubSkills" Type="DATABASE_EDTSModel.SubSkill" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSkill">
@@ -739,7 +775,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="tblSubskillsinoutcome_SubskillsID">
-          <End Role="tblSubSkills" Type="DATABASE_EDTSModel.SubSkill" Multiplicity="1" />
+          <End Role="tblSubSkills" Type="DATABASE_EDTSModel.SubSkill" Multiplicity="0..1" />
           <End Role="tblSubskillsinOutcome" Type="DATABASE_EDTSModel.SubskillsinOutcome" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblSubSkills">
@@ -750,7 +786,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ExamdbContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ExamDBContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BKLevel1" EntityType="DATABASE_EDTSModel.BKLevel1" />
           <EntitySet Name="BKLevel2" EntityType="DATABASE_EDTSModel.BKLevel2" />
           <EntitySet Name="Courses" EntityType="DATABASE_EDTSModel.Course" />
@@ -765,6 +801,10 @@
           <EntitySet Name="SubSkills" EntityType="DATABASE_EDTSModel.SubSkill" />
           <EntitySet Name="SubskillsinBk2" EntityType="DATABASE_EDTSModel.SubskillsinBk2" />
           <EntitySet Name="SubskillsinOutcomes" EntityType="DATABASE_EDTSModel.SubskillsinOutcome" />
+          <AssociationSet Name="FK__tblBKLeve__Numbe__20C1E124" Association="Self.FK__tblBKLeve__Numbe__20C1E124">
+            <End Role="tblBKLevel1" EntitySet="BKLevel1" />
+            <End Role="tblBKLevel2" EntitySet="BKLevel2" />
+          </AssociationSet>
           <AssociationSet Name="Fk_BKLevel2_curriculumid" Association="Self.Fk_BKLevel2_curriculumid">
             <End Role="tblBKLevel1" EntitySet="BKLevel1" />
             <End Role="tblBKLevel2" EntitySet="BKLevel2" />
@@ -827,15 +867,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DATABASE_EDTSModelStoreContainer" CdmEntityContainer="ExamdbContext">
+        <EntityContainerMapping StorageEntityContainer="DATABASE_EDTSModelStoreContainer" CdmEntityContainer="ExamDBContext">
           <EntitySetMapping Name="BKLevel1">
             <EntityTypeMapping TypeName="DATABASE_EDTSModel.BKLevel1">
               <MappingFragment StoreEntitySet="tblBKLevel1">
                 <ScalarProperty Name="BKLevel1ID" ColumnName="BKLevel1ID" />
                 <ScalarProperty Name="CurriculumID" ColumnName="CurriculumID" />
-                <ScalarProperty Name="NumberLevel1" ColumnName="NumberLevel1" />
+                <ScalarProperty Name="NumberLevel" ColumnName="NumberLevel" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -848,6 +889,7 @@
                 <ScalarProperty Name="ShortName" ColumnName="ShortName" />
                 <ScalarProperty Name="NumberLevel1" ColumnName="NumberLevel1" />
                 <ScalarProperty Name="NumberLevel2" ColumnName="NumberLevel2" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -864,6 +906,7 @@
                 <ScalarProperty Name="Scope" ColumnName="Scope" />
                 <ScalarProperty Name="Topics" ColumnName="Topics" />
                 <ScalarProperty Name="Discussion" ColumnName="Discussion" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

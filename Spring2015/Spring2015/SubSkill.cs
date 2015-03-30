@@ -20,12 +20,12 @@ namespace Spring2015
         }
     
         public int SubskillsID { get; set; }
-        public int SkillID { get; set; }
-        public int OutcomeID { get; set; }
-        public int BKLevel2Id { get; set; }
-        public int SkillSetNum1 { get; set; }
-        public int SkillNum2 { get; set; }
-        public int SubSkillNum3 { get; set; }
+        public Nullable<int> SkillID { get; set; }
+        public Nullable<int> OutcomeID { get; set; }
+        public Nullable<int> BKLevel2Id { get; set; }
+        public Nullable<int> SkillSetNum1 { get; set; }
+        public Nullable<int> SkillNum2 { get; set; }
+        public Nullable<int> SubSkillNum3 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string JobAdWords { get; set; }

@@ -15,8 +15,8 @@ namespace Spring2015
     public partial class SubskillsinOutcome
     {
         public int SubskillsinoutcomeID { get; set; }
-        public int OutcomeID { get; set; }
-        public int SubskillsID { get; set; }
+        public Nullable<int> OutcomeID { get; set; }
+        public Nullable<int> SubskillsID { get; set; }
     
         public virtual Outcome Outcome { get; set; }
         public virtual SubSkill SubSkill { get; set; }

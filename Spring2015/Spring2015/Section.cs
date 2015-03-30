@@ -20,7 +20,7 @@ namespace Spring2015
         }
     
         public int SectionID { get; set; }
-        public int CurriculumID { get; set; }
+        public Nullable<int> CurriculumID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Purpose { get; set; }
