@@ -15,8 +15,8 @@ namespace Spring2015
     public partial class OutcomeinBK2
     {
         public int OutcomeBK2ID { get; set; }
-        public Nullable<int> OutcomeID { get; set; }
-        public Nullable<int> BKLevelID { get; set; }
+        public int OutcomeID { get; set; }
+        public int BKLevelID { get; set; }
     
         public virtual BKLevel2 BKLevel2 { get; set; }
         public virtual Outcome Outcome { get; set; }

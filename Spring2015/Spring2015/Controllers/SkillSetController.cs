@@ -12,7 +12,7 @@ namespace Spring2015.Controllers
 {
     public class SkillSetController : Controller
     {
-        private ExamDBContext db = new ExamDBContext();
+        private ExamdbContext db = new ExamdbContext();
 
         // GET: /SkillSet/
         public ActionResult Index(int? id)

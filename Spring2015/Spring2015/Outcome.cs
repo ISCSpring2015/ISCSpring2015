@@ -21,7 +21,7 @@ namespace Spring2015
         }
     
         public int OutcomeID { get; set; }
-        public Nullable<int> CourseID { get; set; }
+        public int CourseID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public Nullable<int> DepthOfKnowledge { get; set; }

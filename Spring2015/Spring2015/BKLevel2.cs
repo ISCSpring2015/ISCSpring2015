@@ -21,15 +21,13 @@ namespace Spring2015
         }
     
         public int BKLevel2ID { get; set; }
-        public Nullable<int> BKLevel1ID { get; set; }
+        public int BKLevel1ID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<int> NumberLevel1 { get; set; }
-        public Nullable<int> NumberLevel2 { get; set; }
-        public string Purpose { get; set; }
+        public int NumberLevel1 { get; set; }
+        public int NumberLevel2 { get; set; }
     
         public virtual BKLevel1 BKLevel1 { get; set; }
-        public virtual BKLevel1 BKLevel11 { get; set; }
         public virtual ICollection<SubskillsinBk2> SubskillsinBk2 { get; set; }
         public virtual ICollection<OutcomeinBK2> OutcomeinBK2 { get; set; }
     }

@@ -17,18 +17,15 @@ namespace Spring2015
         public BKLevel1()
         {
             this.BKLevel2 = new HashSet<BKLevel2>();
-            this.BKLevel21 = new HashSet<BKLevel2>();
         }
     
         public int BKLevel1ID { get; set; }
-        public Nullable<int> CurriculumID { get; set; }
-        public Nullable<int> NumberLevel { get; set; }
+        public int CurriculumID { get; set; }
+        public int NumberLevel1 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public string Purpose { get; set; }
     
         public virtual ICollection<BKLevel2> BKLevel2 { get; set; }
-        public virtual ICollection<BKLevel2> BKLevel21 { get; set; }
         public virtual Curriculum Curriculum { get; set; }
     }
 }

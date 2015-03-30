@@ -20,9 +20,9 @@ namespace Spring2015
         }
     
         public int SkillID { get; set; }
-        public Nullable<int> SkillsetID { get; set; }
-        public Nullable<int> SkillSetNum1 { get; set; }
-        public Nullable<int> SkillNum2 { get; set; }
+        public int SkillsetID { get; set; }
+        public int SkillSetNum1 { get; set; }
+        public int SkillNum2 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
     

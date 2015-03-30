@@ -13,10 +13,10 @@ namespace Spring2015
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ExamDBContext : DbContext
+    public partial class ExamdbContext : DbContext
     {
-        public ExamDBContext()
-            : base("name=ExamDBContext")
+        public ExamdbContext()
+            : base("name=ExamdbContext")
         {
         }
     
