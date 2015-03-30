@@ -13,7 +13,7 @@ namespace Spring2015.Controllers
     public class SkillController : Controller
     {
         private ExamdbContext db = new ExamdbContext();
-        //
+        
         // GET: /Skill/
         public ActionResult Index(int? id)
         {
