@@ -95,7 +95,7 @@ namespace Spring2015.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -114,7 +114,7 @@ namespace Spring2015.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
+        
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -129,7 +129,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
