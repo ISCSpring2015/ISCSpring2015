@@ -36,7 +36,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -61,7 +61,7 @@ namespace Spring2015.Controllers
             return View(model);
         }
 
-        //
+        
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -69,7 +69,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
