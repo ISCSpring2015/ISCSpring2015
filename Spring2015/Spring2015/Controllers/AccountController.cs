@@ -12,6 +12,7 @@ using Spring2015.Models;
 
 namespace Spring2015.Controllers
 {
+    //Nikhil
     [Authorize]
     public class AccountController : Controller
     {
@@ -27,7 +28,7 @@ namespace Spring2015.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
-        //
+        
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -36,7 +37,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -61,7 +62,7 @@ namespace Spring2015.Controllers
             return View(model);
         }
 
-        //
+        
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -69,7 +70,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -95,7 +96,7 @@ namespace Spring2015.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -114,7 +115,7 @@ namespace Spring2015.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
+        
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
@@ -129,7 +130,7 @@ namespace Spring2015.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
