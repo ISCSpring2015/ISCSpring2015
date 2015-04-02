@@ -54,7 +54,7 @@ namespace Spring2015.Controllers
         }
 
         // GET: /SkillSet/Create
-        //ajit
+        
         public ActionResult Create()
         {
             //ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name");

@@ -14,7 +14,7 @@ namespace Spring2015.Controllers
     {
         private ExamdbContext db = new ExamdbContext();
 
-        // GET: /Curriculum/
+        // GET: /Curriculum/123
         public ActionResult Index()
         {
             if (Convert.ToBoolean(Session["UserValid"]) == true) {
