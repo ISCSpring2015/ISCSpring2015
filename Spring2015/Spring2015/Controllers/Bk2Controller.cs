@@ -14,7 +14,7 @@ namespace Spring2015.Controllers
     {
         private ExamdbContext db = new ExamdbContext();
 
-        // GET: /BK2/
+        // GET: /BK2/11
         public ActionResult Index(int? id)
         {
             int? BK1_id = (id ?? 0);
