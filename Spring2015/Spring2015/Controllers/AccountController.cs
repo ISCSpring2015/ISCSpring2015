@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -12,6 +13,7 @@ using Spring2015.Models;
 
 namespace Spring2015.Controllers
 {
+    //
     //Nikhil
     [Authorize]
     public class AccountController : Controller
