@@ -1,19 +1,29 @@
-﻿@model Spring2015.SkillSet
+﻿@model Spring2015.Section
 
 @{
-    //ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Create SkillSet</h2>
+<h2>Edit Section</h2>
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        @*<h4>SkillSet</h4>*@
+        @*<h4>Section</h4>*@
         <hr />
         @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.SectionID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CurriculumID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CurriculumID)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
@@ -32,25 +42,16 @@
         </div>
 
         <div class="form-group">
-            @Html.HiddenFor(model => model.skillSetNum1)
-@Html.HiddenFor(model => model.CurriculumID)
-            @*<div class="col-md-10">
-                @Html.EditorFor(model => model.skillSetNum1)
-                @Html.ValidationMessageFor(model => model.skillSetNum1)
-            </div>*@
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("CurriculumID", String.Empty)
-                @Html.ValidationMessageFor(model => model.CurriculumID)
+                @Html.EditorFor(model => model.Purpose)
+                @Html.ValidationMessageFor(model => model.Purpose)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -59,3 +60,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

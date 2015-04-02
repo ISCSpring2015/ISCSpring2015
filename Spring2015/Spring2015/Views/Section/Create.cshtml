@@ -1,19 +1,28 @@
-﻿@model Spring2015.Skill
+﻿@model Spring2015.Section
 
 @{
-    ViewBag.Title = "Create";
+    //ViewBag.Title = "Create";
 }
 
-<h2>Create Skill</h2>
+<h2>Create Section</h2>
+
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        @*<h4>Skill</h4>*@
+        @*<h4>Section</h4>*@
         <hr />
         @Html.ValidationSummary(true)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CurriculumID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CurriculumID)
+            </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
@@ -27,14 +36,17 @@
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name)
-                                @Html.ValidationMessageFor(model => model.Name)
-                @Html.HiddenFor(model => model.SkillsetID)
-                @Html.HiddenFor(model => model.SkillSetNum1)
-                @Html.HiddenFor(model => model.SkillNum2)
+                @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
 
-        
+       <div class="form-group">
+            @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Purpose)
+                @Html.ValidationMessageFor(model => model.Purpose)
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -47,3 +59,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
