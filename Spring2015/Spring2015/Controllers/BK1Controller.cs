@@ -14,7 +14,7 @@ namespace Spring2015.Controllers
     {
         private ExamdbContext db = new ExamdbContext();
 
-        // GET: /BK1/
+        // GET: /BK1/11
         public ActionResult Index(int? id)
         {
             if (Convert.ToBoolean(Session["UserValid"]) == true)

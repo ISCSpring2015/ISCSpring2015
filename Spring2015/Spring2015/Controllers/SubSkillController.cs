@@ -80,6 +80,7 @@ namespace Spring2015.Controllers
             Subskill.SubSkillNum3 = lastSubskill[maxlast].SubSkillNum3;
             Subskill.SkillNum2 = lastSubskill[maxlast].SkillNum2 + 1;
             Subskill.SkillSetNum1 = lastSubskill[maxlast].SkillSetNum1;
+            //
             Subskill.SkillID = lastSubskill[maxlast].SkillID;
             TempData.Keep();
             return View(Subskill);
