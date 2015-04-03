@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spring2015;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,15 +7,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Spring2015.Models;
 
 namespace Spring2015.Controllers
 {
-    public class SkillSetController : Controller
+    public class SectionController : Controller
     {
         private ExamdbContext db = new ExamdbContext();
 
-        // GET: /SkillSet/
+        // GET: /Section/
         public ActionResult Index(int? id)
         {
             if (Convert.ToBoolean(Session["UserValid"]) == true)
@@ -24,130 +24,130 @@ namespace Spring2015.Controllers
                 {
                     cur_id = (int)TempData["CurriculumID"];
                 }
-                List<SkillSet> skillsetlist = new List<SkillSet>();
+                List<Section> Sectionlist = new List<Section>();
                 if (cur_id > 0)
                 {
                     TempData["CurriculumID"] = cur_id;
                     // Response.Write("Curriculum Id:" + cur_id);
                     // skillsetlist=skillsetlist.
-                    skillsetlist = db.SkillSets.Where(t => t.CurriculumID == cur_id).ToList();
-                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    TempData["CurriculumName"] = (string)cur.Name;
+                    //Sectionlist = db.Section.Where(t => t.CurriculumID == cur_id).ToList();
+                    //var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    //TempData["CurriculumName"] = (string)cur.Name;
                 }
                 TempData.Keep();
 
 
-                return View("Index", skillsetlist);
+                return View("Index", Sectionlist);
             }
             else { return RedirectToAction("Login", "Person"); }
         }
 
-        // GET: /SkillSet/Details/5
+        // GET: /Section/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SkillSet skillset = db.SkillSets.Find(id);
-            if (skillset == null)
+           // Section section = db.SkillSets.Find(id);
+            Section section = db.Sections.Find(id);
+            if (section == null)
             {
                 return HttpNotFound();
             }
-            return View(skillset);
+            return View(section);
         }
 
-        // GET: /SkillSet/Create
-        
+        // GET: /Section/Create
         public ActionResult Create()
         {
-            //ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name");
-            SkillSet skillset = new SkillSet();
-            List<SkillSet> lastskillset = new List<SkillSet>();
+            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name");
+
+            Section section = new Section();
+            List<Section> lastsection = new List<Section>();
             int CurriculumID = (int)TempData["CurriculumID"];
-            lastskillset = db.SkillSets.Where(t => t.CurriculumID == CurriculumID).ToList();
-            // var te = db.Skills.Where(t => t.SkillsetID == (int)TempData["skillset_id"]).Last();
-            var maxlast = lastskillset.Count() - 1;
+          // lastsection = db.sections.Where(t => t.CurriculumID == CurriculumID).ToList();
+            var maxlast = lastsection.Count() - 1;
 
-            skillset.skillSetNum1 = lastskillset[maxlast].skillSetNum1 + 1;
-            skillset.CurriculumID = CurriculumID;
+            //section.skillSetNum1 = lastskillset[maxlast].skillSetNum1 + 1;
+            //skillset.CurriculumID = CurriculumID;
 
-            return View(skillset);
+            return View();
         }
 
-        // POST: /SkillSet/Create
+        // POST: /Section/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SkillsetID,Name,ShortName,skillSetNum1,CurriculumID")] SkillSet skillset)
+        public ActionResult Create([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
             if (ModelState.IsValid)
             {
-
-                db.SkillSets.Add(skillset);
+                db.Sections.Add(section);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = skillset.CurriculumID });
+                return RedirectToAction("Index");
             }
 
-            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", skillset.CurriculumID);
-            return View(skillset);
+            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
+            return View(section);
         }
 
-        // GET: /SkillSet/Edit/5
+        // GET: /Section/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SkillSet tblskillset = db.SkillSets.Find(id);
-            if (tblskillset == null)
+            Section section = db.Sections.Find(id);
+            if (section == null)
             {
                 return HttpNotFound();
             }
-            return View(tblskillset);
+            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
+            return View(section);
         }
 
-        // POST: /SkillSet/Edit/5
+        // POST: /Section/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SkillsetID,Name,ShortName,CurriculumID,skillSetNum1")] SkillSet skillset)
+        public ActionResult Edit([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(skillset).State = EntityState.Modified;
+                db.Entry(section).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new {@id= skillset.CurriculumID });
+                return RedirectToAction("Index");
             }
-            //ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", skillset.CurriculumID);
-            return View(skillset);
+            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
+            return View(section);
         }
 
-        // GET: /SkillSet/Delete/5
+        // GET: /Section/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SkillSet skillset = db.SkillSets.Find(id);
-            if (skillset == null)
+            Section section = db.Sections.Find(id);
+            if (section == null)
             {
                 return HttpNotFound();
             }
-            return View(skillset);
+            return View(section);
         }
 
-        // POST: /SkillSet/Delete/5
+        // POST: /Section/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SkillSet skillset = db.SkillSets.Find(id);
-            db.SkillSets.Remove(skillset);
+            Section section = db.Sections.Find(id);
+            db.Sections.Remove(section);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -17,28 +17,32 @@ namespace Spring2015.Controllers
         // GET: /Skill/
         public ActionResult Index(int? id)
         {
-            int? skillset_id = (id ?? 0);
-            if (TempData["skillset_id"] != null && skillset_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                skillset_id = (int)TempData["skillset_id"];
-            }
-            else { TempData["skillset_id"] = skillset_id; }
-            List<Skill> skilllist = new List<Skill>();
-            if (skillset_id > 0)
-            {
-                //Response.Write("Skillset Id:" + skillset_id);
-                // skillsetlist=skillsetlist.
-                skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
-                var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
-                TempData["skillset_Name"] = (string)cur.Name;
-            }
-            TempData.Keep();
-            //else
-            //{
-            //    skilllist = db.Skills.ToList();
-            //}
+                int? skillset_id = (id ?? 0);
+                if (TempData["skillset_id"] != null && skillset_id == 0)
+                {
+                    skillset_id = (int)TempData["skillset_id"];
+                }
+                else { TempData["skillset_id"] = skillset_id; }
+                List<Skill> skilllist = new List<Skill>();
+                if (skillset_id > 0)
+                {
+                    //Response.Write("Skillset Id:" + skillset_id);
+                    // skillsetlist=skillsetlist.
+                    skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
+                    var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
+                    TempData["skillset_Name"] = (string)cur.Name;
+                }
+                TempData.Keep();
+                //else
+                //{
+                //    skilllist = db.Skills.ToList();
+                //}
 
-            return View("Index", skilllist);
+                return View("Index", skilllist);
+            }
+            else { return RedirectToAction("Login", "Person"); }
         }
 
         // GET: /Skill/Details/5
