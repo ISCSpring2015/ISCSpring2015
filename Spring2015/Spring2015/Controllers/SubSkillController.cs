@@ -17,31 +17,35 @@ namespace Spring2015.Controllers
         // GET: /SubSkill/
         public ActionResult Index(int? id)
         {
-            //var subskills = db.SubSkills.Include(s => s.Skill).Include(s => s.SubskillsinBk2);
-            //return View(subskills.ToList());
-
-            int? skill_id = (id ?? 0);
-            if (TempData["skill_id"] != null && skill_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                skill_id = (int)TempData["skill_id"];
-            }
-            else { TempData["skill_id"] = skill_id; }
-            List<SubSkill> Subskilllist = new List<SubSkill>();
-            if (skill_id > 0)
-            {
-                //Response.Write("Skillset Id:" + skillset_id);
-                // skillsetlist=skillsetlist.
-                Subskilllist = db.SubSkills.Where(t => t.SkillID == skill_id).ToList();
-                var skill = db.Skills.Where(t => t.SkillID == skill_id).Single();
-                TempData["skill_Name"] = (string)skill.Name;
-            }
-            TempData.Keep();
-            //else
-            //{
-            //    skilllist = db.Skills.ToList();
-            //}
+                //var subskills = db.SubSkills.Include(s => s.Skill).Include(s => s.SubskillsinBk2);
+                //return View(subskills.ToList());
 
-            return View("Index", Subskilllist);
+                int? skill_id = (id ?? 0);
+                if (TempData["skill_id"] != null && skill_id == 0)
+                {
+                    skill_id = (int)TempData["skill_id"];
+                }
+                else { TempData["skill_id"] = skill_id; }
+                List<SubSkill> Subskilllist = new List<SubSkill>();
+                if (skill_id > 0)
+                {
+                    //Response.Write("Skillset Id:" + skillset_id);
+                    // skillsetlist=skillsetlist.
+                    Subskilllist = db.SubSkills.Where(t => t.SkillID == skill_id).ToList();
+                    var skill = db.Skills.Where(t => t.SkillID == skill_id).Single();
+                    TempData["skill_Name"] = (string)skill.Name;
+                }
+                TempData.Keep();
+                //else
+                //{
+                //    skilllist = db.Skills.ToList();
+                //}
+
+                return View("Index", Subskilllist);
+            }
+            else { return RedirectToAction("Login", "Person"); }
         }
 
         // GET: /SubSkill/Details/5
@@ -76,6 +80,7 @@ namespace Spring2015.Controllers
             Subskill.SubSkillNum3 = lastSubskill[maxlast].SubSkillNum3;
             Subskill.SkillNum2 = lastSubskill[maxlast].SkillNum2 + 1;
             Subskill.SkillSetNum1 = lastSubskill[maxlast].SkillSetNum1;
+            //
             Subskill.SkillID = lastSubskill[maxlast].SkillID;
             TempData.Keep();
             return View(Subskill);

@@ -46,12 +46,35 @@
         }
     }
 </script>
+<script>
+    var selectedIndex = 0;
+    function getSelectedRow(e) {
+        alert(e);
+        $("#hdnselectedIndex").val() = e;
+        selectedIndex = e;
+        alert($("#hdnselectedIndex").val());
+    }
+
+    function getValue2() {
+        // alert();
+        // var skillcurr = $("form:radio:checked").val();
+        var radioanswer = 0;
+        if ($('input[name=group1]:checked').val() != null) {
+            radioanswer = $('input[name=group1]:checked').val();
+        }
+        //var selectedId = $('#hdnSelectedId').val();
+        // alert(radioanswer);
+        if (radioanswer > 0) {
+            window.location.href = "/Section/Index/" + radioanswer;
+        }
+    }
+</script>
 
 @{
     //ViewBag.Title = "Index";
 }
 
-<h2>Curriculum</h2>
+<h2>List Curriculum</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -102,6 +125,8 @@
     <input id="btnSkillSet" type="button" name="btnSkillSet" value="Skill Set" class="btn btn-primary" onclick="getValue();"/>
            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input id="btnBKLevel1" type="button" name="btnBKLevel1" value="BKLevel1" class="btn btn-primary" onclick="getValue1();" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+    <input id="btnSection" type="button" name="btnSection" value="Section" class="btn btn-primary" onclick="getValue2();" />
 
 </div>
 
