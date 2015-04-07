@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Spring2015.Section>
 
 @{
-    ViewBag.Title = "Index";
+    //ViewBag.Title = "Index";
 }
 
 <h2>Section</h2>
@@ -23,12 +23,12 @@
     }
 </script>
 
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
-        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
@@ -36,7 +36,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-       
+        
         <th>
             @Html.DisplayNameFor(model => model.Purpose)
         </th>
@@ -51,14 +51,15 @@
         <td>
             <input type="radio" name="RdSection" id="@item.SectionID" value=@item.SectionID />
         </td>
-
         <td>
             @Html.DisplayFor(modelItem => item.ShortName)
         </td>
-                <td>
+
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-               <td>
+        
+        <td>
             @Html.DisplayFor(modelItem => item.Purpose)
         </td>
         @*<td>
@@ -79,4 +80,4 @@
 
     <input id="btnSection" type="button" name="btnSection" value="Courses" class="btn btn-primary" onclick="getValue();" />
     @*@Html.ActionLink("Skill", "Index", new { id = 1 }, new { @class = "btn btn-primary", @type = "button" })*@
-</div>
+</div>  
