@@ -98,7 +98,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
+           // ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
             return View(section);
         }
 
@@ -113,7 +113,7 @@ namespace Spring2015.Controllers
             {
                 db.Entry(section).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { @id = section.CurriculumID });
             }
             ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
             return View(section);

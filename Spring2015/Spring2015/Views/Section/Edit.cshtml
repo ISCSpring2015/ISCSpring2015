@@ -16,14 +16,16 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.SectionID)
+     
+        @Html.HiddenFor(model => model.CurriculumID)
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("CurriculumID", String.Empty)
                 @Html.ValidationMessageFor(model => model.CurriculumID)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
