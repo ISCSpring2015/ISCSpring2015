@@ -1,5 +1,4 @@
-﻿using Spring2015;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Spring2015;
 
 namespace Spring2015.Controllers
 {
@@ -28,14 +28,11 @@ namespace Spring2015.Controllers
                 if (cur_id > 0)
                 {
                     TempData["CurriculumID"] = cur_id;
-                    // Response.Write("Curriculum Id:" + cur_id);
-                    // skillsetlist=skillsetlist.
-                    //Sectionlist = db.Section.Where(t => t.CurriculumID == cur_id).ToList();
-                    //var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    //TempData["CurriculumName"] = (string)cur.Name;
+                    Sectionlist = db.Sections.Where(t => t.CurriculumID == cur_id).ToList();
+                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    TempData["CurriculumName"] = (string)cur.Name;
                 }
                 TempData.Keep();
-
 
                 return View("Index", Sectionlist);
             }
@@ -49,7 +46,6 @@ namespace Spring2015.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-           // Section section = db.SkillSets.Find(id);
             Section section = db.Sections.Find(id);
             if (section == null)
             {
@@ -61,18 +57,14 @@ namespace Spring2015.Controllers
         // GET: /Section/Create
         public ActionResult Create()
         {
-            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name");
-
             Section section = new Section();
             List<Section> lastsection = new List<Section>();
             int CurriculumID = (int)TempData["CurriculumID"];
-          // lastsection = db.sections.Where(t => t.CurriculumID == CurriculumID).ToList();
+            lastsection = db.Sections.Where(t => t.CurriculumID == CurriculumID).ToList();
             var maxlast = lastsection.Count() - 1;
-
-            //section.skillSetNum1 = lastskillset[maxlast].skillSetNum1 + 1;
-            //skillset.CurriculumID = CurriculumID;
-
-            return View();
+            section.SectionID = lastsection[maxlast].SectionID + 1;
+            section.CurriculumID = CurriculumID;
+            return View(section);
         }
 
         // POST: /Section/Create
@@ -84,9 +76,10 @@ namespace Spring2015.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 db.Sections.Add(section);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { @id = section.CurriculumID });
             }
 
             ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
