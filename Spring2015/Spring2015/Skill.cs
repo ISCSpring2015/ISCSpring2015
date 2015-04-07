@@ -23,7 +23,7 @@ namespace Spring2015
         public int SkillID { get; set; }
         public int SkillsetID { get; set; }
         public int SkillSetNum1 { get; set; }
-        [Display(Name="Num")]
+        [Display(Name="SkillNumber")]
         public int SkillNum2 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }

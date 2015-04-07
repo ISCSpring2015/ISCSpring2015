@@ -4,19 +4,19 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit SubSkill</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>SubSkill</h4>
+        @*<h4>SubSkill</h4>*@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.SubskillsID)
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.SkillID, "SkillID", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("SkillID", String.Empty)
@@ -62,12 +62,12 @@
                 @Html.EditorFor(model => model.SubSkillNum3)
                 @Html.ValidationMessageFor(model => model.SubSkillNum3)
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Name, new { rows = "4", cols = "22" })
+                @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -83,14 +83,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.JobAdWords, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.JobAdWords, new { rows = "4", cols = "22" })
+                @Html.TextAreaFor(model => model.JobAdWords)
                 @Html.ValidationMessageFor(model => model.JobAdWords)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
