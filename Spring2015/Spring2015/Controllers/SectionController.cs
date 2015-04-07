@@ -109,6 +109,7 @@ namespace Spring2015.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(section).State = EntityState.Modified;
