@@ -91,7 +91,7 @@ namespace Spring2015.Controllers
                 db.Skills.Add(skill);
                 db.SaveChanges();
                 TempData.Keep();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { @id = skill.SkillsetID });
             }
 
             ViewBag.SkillsetID = new SelectList(db.SkillSets, "SkillsetID", "Name", skill.SkillsetID);
@@ -127,8 +127,8 @@ namespace Spring2015.Controllers
             {
                 db.Entry(skill).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData.Keep(); 
-                return RedirectToAction("Index");
+                TempData.Keep();
+                return RedirectToAction("Index", new { @id = skill.SkillsetID });
             }
             ViewBag.SkillsetID = new SelectList(db.SkillSets, "SkillsetID", "Name", skill.SkillsetID);
             return View(skill);
