@@ -11,6 +11,7 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class SkillSet
     {
@@ -20,8 +21,11 @@ namespace Spring2015
         }
     
         public int SkillsetID { get; set; }
+        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
+        [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
+         [Display(Name = "SkillSetNumber")]
         public int skillSetNum1 { get; set; }
         public int CurriculumID { get; set; }
     
