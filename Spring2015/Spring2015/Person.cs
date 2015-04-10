@@ -27,8 +27,10 @@ namespace Spring2015
         [Required(ErrorMessage = "Please Provide city", AllowEmptyStrings = false)]
         public string City { get; set; }
         [Required(ErrorMessage = "Please Provide state", AllowEmptyStrings = false)]
+        [Display(Name = "State")]
         public string St { get; set; }
         [Required(ErrorMessage = "Please Provide zip", AllowEmptyStrings = false)]
+        [Display(Name = "ZipCode")]
         public string Zip { get; set; }
         [Required(ErrorMessage = "Please Provide UserName", AllowEmptyStrings = false)]
         public string Username { get; set; }
@@ -37,7 +39,8 @@ namespace Spring2015
         [StringLength(200, MinimumLength = 8, ErrorMessage = "Password must be 8 char long")]
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
-        [Required(ErrorMessage = "Please Provide your Phonenumber1", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Please Provide your PhoneNumber", AllowEmptyStrings = false)]
+        [Display(Name = "PhoneNumber")]
         public string Phonenumber1 { get; set; }
         [Required(ErrorMessage = "Please Provide your Email", AllowEmptyStrings = false)]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[0-9a-zA-Z]{2,3})$", ErrorMessage = "please provide valid email id")]

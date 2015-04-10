@@ -6,6 +6,7 @@
     <title>EDTS - 1.0</title>
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
@@ -24,38 +25,25 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    @*@if (Session["UserValid"] != null)
-        {
-            <h5 class="text-right">
-                @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
-            </h5>
-        }*@
+   
 
     @if (Request.IsAuthenticated)
     {
         @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
     }
-    @*else
-    {
-        @Html.ActionLink("Log In", "Login", "Person", null, new { @style = "color:#FFFFFF;" })
-    }*@
-
 </span>
-
-
-
-                @*else
-                    {
-                       @Html.ActionLink("Register", "Register", "User")
-                       <span> | </span>
-                       @Html.ActionLink("Log In", "Login", "User")
-                    }*@
-
-            </div>
-
-        </header>
+ </div>
+</header>
         <div class="container body-content">
-
+            @Html.ActionLink("Curriculum", "Index", "Curriculum")
+            @if (ViewContext.RouteData.Values["controller"].ToString() != "Curriculum")
+            {
+                @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Index", ViewContext.RouteData.Values["controller"].ToString())
+            }
+            @if (ViewContext.RouteData.Values["action"].ToString() != "Index")
+            {
+                @:> @Html.ActionLink(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+            }
             @RenderBody()
             <hr />
 
