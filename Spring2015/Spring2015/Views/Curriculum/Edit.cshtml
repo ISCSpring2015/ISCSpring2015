@@ -8,7 +8,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h2>Edit Curriculum</h2>
         <hr />
@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Name, new { rows = "5", cols = "30" })
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShortName)
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>

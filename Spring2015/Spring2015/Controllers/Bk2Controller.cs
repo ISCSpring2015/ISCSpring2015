@@ -18,27 +18,31 @@ namespace Spring2015.Controllers
         // GET: /BK2/11
         public ActionResult Index(int? id)
         {
-            int? BkLevel1_id = (id ?? 0);
-            if (TempData["BkLevel1_id"] != null && BkLevel1_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                BkLevel1_id = (int)TempData["BkLevel1_id"];
+                int? BkLevel1_id = (id ?? 0);
+                if (TempData["BkLevel1_id"] != null && BkLevel1_id == 0)
+                {
+                    BkLevel1_id = (int)TempData["BkLevel1_id"];
+                }
+                else { TempData["BkLevel1_id"] = BkLevel1_id; }
+                List<BKLevel2> BKLevel2list = new List<BKLevel2>();
+                if (BkLevel1_id > 0)
+                {
+                    //Response.Write("BKLevel1 Id:" + BK1_id);
+                    // skillsetlist=skillsetlist.
+                    BKLevel2list = db.BKLevel2.Where(t => t.BKLevel1ID == BkLevel1_id).ToList();
+                    var cur = db.BKLevel1.Where(t => t.BKLevel1ID == BkLevel1_id).Single();
+                    TempData["BkLevel1_Name"] = (string)cur.Name;
+                }
+                TempData.Keep();
+                //else
+                //{
+                //    BKLevel2list = db.BKLevel2.ToList();
+                //}
+                return View("Index", BKLevel2list);
             }
-            else { TempData["BkLevel1_id"] = BkLevel1_id; }
-            List<BKLevel2> BKLevel2list = new List<BKLevel2>();
-            if (BkLevel1_id > 0)
-            {
-                //Response.Write("BKLevel1 Id:" + BK1_id);
-                // skillsetlist=skillsetlist.
-                BKLevel2list = db.BKLevel2.Where(t => t.BKLevel1ID == BkLevel1_id).ToList();
-                var cur = db.BKLevel1.Where(t => t.BKLevel1ID == BkLevel1_id).Single();
-                TempData["BkLevel1_Name"] = (string)cur.Name;
-            }
-            TempData.Keep();
-            //else
-            //{
-            //    BKLevel2list = db.BKLevel2.ToList();
-            //}
-            return View("Index", BKLevel2list);
+            else { return RedirectToAction("Login", "Person"); }
         }
 
         // GET: /BK2/Details/5
@@ -66,13 +70,13 @@ namespace Spring2015.Controllers
             int BkLevel1id = (int)TempData["BkLevel1_id"];
             lastBklevel2 = db.BKLevel2.Where(t => t.BKLevel1ID == BkLevel1id).ToList();
             // var te = db.Skills.Where(t => t.SkillsetID == (int)TempData["skillset_id"]).Last();
-            var maxlast = lastBklevel2.Count()-1;
+            var maxlast = lastBklevel2.Count() - 1;
 
             bklevel2.NumberLevel2 = lastBklevel2[maxlast].NumberLevel2 + 1;
             bklevel2.NumberLevel1 = lastBklevel2[maxlast].NumberLevel1;
             bklevel2.BKLevel1ID = lastBklevel2[maxlast].BKLevel1ID;
             TempData.Keep();
-            return View( bklevel2);
+            return View(bklevel2);
         }
 
         // POST: /BK2/Create
@@ -128,7 +132,7 @@ namespace Spring2015.Controllers
                     TempData.Keep();
                     return RedirectToAction("Index");
                 }
-                catch(DbUpdateConcurrencyException ex)
+                catch (DbUpdateConcurrencyException ex)
                 {
                     var bkleve2 = ex.Entries.Single();
                     bkleve2.OriginalValues.SetValues(bkleve2.GetDatabaseValues());

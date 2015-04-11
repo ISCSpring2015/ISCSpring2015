@@ -1,5 +1,4 @@
-﻿
-@model Spring2015.BKLevel2
+﻿@model Spring2015.BKLevel2
 
 @{
     //ViewBag.Title = "Edit";
@@ -20,51 +19,52 @@
         @Html.HiddenFor(model => model.NumberLevel2)
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.BKLevel1ID, "BKLevel1ID", new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("BKLevel1ID", String.Empty)
-                @Html.ValidationMessageFor(model => model.BKLevel1ID)
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
+                @Html.LabelFor(model => model.BKLevel1ID, "BKLevel1ID", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("BKLevel1ID", String.Empty)
+                    @Html.ValidationMessageFor(model => model.BKLevel1ID)
+                </div>
+            </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShortName)
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.NumberLevel1, new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NumberLevel1)
-                @Html.ValidationMessageFor(model => model.NumberLevel1)
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumberLevel2, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumberLevel2)
-                @Html.ValidationMessageFor(model => model.NumberLevel2)
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.NumberLevel1, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NumberLevel1)
+                    @Html.ValidationMessageFor(model => model.NumberLevel1)
+                </div>
             </div>
-        </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumberLevel2, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NumberLevel2)
+                    @Html.ValidationMessageFor(model => model.NumberLevel2)
+                </div>
+            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
-   </div>
+    </div>
 }
 
 <div>
