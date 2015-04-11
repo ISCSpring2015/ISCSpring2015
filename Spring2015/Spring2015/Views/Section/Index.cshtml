@@ -6,9 +6,16 @@
 
 <h2>Section</h2>
 
-<script type="text/javascript">
+<script>
+    var selectedIndex = 0;
+    function getSelectedRow(e) {
+        alert(e);
+        $("#hdn_selected_Section").val() = e;
+        selectedIndex = e;
+        alert($("#hdn_selected_Section").val());
+    }
 
-    function getValue() {
+    function getValue2() {
         // alert();
         // var skillcurr = $("form:radio:checked").val();
         var radioanswer = 0;
@@ -37,48 +44,48 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        
+
         <th>
             @Html.DisplayNameFor(model => model.Purpose)
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.Curriculum.Name)
-        </th>*@
+                @Html.DisplayNameFor(model => model.Curriculum.Name)
+            </th>*@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <input type="radio" name="RdSection" id="@item.SectionID" value=@item.SectionID />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShortName)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <input type="radio" name="RdSection" id="@item.SectionID" value=@item.SectionID />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.Purpose)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Curriculum.Name)
-        </td>*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SectionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SectionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SectionID })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Purpose)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Curriculum.Name)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SectionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SectionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SectionID })
+            </td>
+        </tr>
+    }
 
 </table>
 @Html.Hidden("hdn_selected_Section", 0)
 
 <div style="text-align: center;">
 
-   @* <input id="btnSection" type="button" name="btnSection" value="Courses" class="btn btn-primary" onclick="getValue();" />
-    @Html.ActionLink("Skill", "Index", new { id = 1 }, new { @class = "btn btn-primary", @type = "button" })*@
+    <input id="Course" type="button" name="btnCourse" value="Course" class="btn btn-primary" onclick="getValue2();" />
 </div>  
