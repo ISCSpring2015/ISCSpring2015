@@ -6,6 +6,30 @@
 
 <h2>List Course</h2>
 
+<script>
+    var selectedIndex = 0;
+    function getSelectedRow(e) {
+        alert(e);
+        $("#hdn_selected_Course").val() = e;
+        selectedIndex = e;
+        alert($("#hdn_selected_Course").val());
+    }
+
+    function getValue() {
+        // alert();
+        // var skillcurr = $("form:radio:checked").val();
+        var radioanswer = 0;
+        if ($('input[name=RdCourse]:checked').val() != null) {
+            radioanswer = $('input[name=RdCourse]:checked').val();
+        }
+        //var selectedId = $('#hdnSelectedId').val();
+        // alert(radioanswer);
+        if (radioanswer > 0) {
+            window.location.href = "/Outcome/Index/" + radioanswer;
+        }
+    }
+</script>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -86,3 +110,10 @@
     }
 
 </table>
+
+<div style="text-align: center;">
+
+    <input id="btnOutcome" type="button" name="btnOutcome" value="Outcomes" class="btn btn-primary" onclick="getValue();" />
+
+
+</div>

@@ -15,6 +15,13 @@
 
         <hr />
         @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+
+                @Html.HiddenFor(model => model.SectionID, "SectionID")
+
+            </div>
+        </div>
 
         @*<div class="form-group">
                 @Html.LabelFor(model => model.SectionID, "SectionID", new { @class = "control-label col-md-2" })
@@ -67,7 +74,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Scope, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Scope, new { cols = "70", rows = "2" })
+                @Html.TextAreaFor(model => model.Scope, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.Scope)
             </div>
         </div>
@@ -98,7 +105,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.SectionID })
 </div>
 
 @*@section Scripts {

@@ -16,9 +16,9 @@ namespace Spring2015
     public partial class Login
     {
         public int UserID { get; set; }
-        [Required(ErrorMessage = "Please Provide your Username", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your Username", AllowEmptyStrings = false)]
         public string Username { get; set; }
-        [Required(ErrorMessage = "Please Provide your Password", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your Password", AllowEmptyStrings = false)]
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
     }

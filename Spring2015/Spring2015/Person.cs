@@ -16,33 +16,33 @@ namespace Spring2015
     public partial class Person
     {
         public int PersonID { get; set; }
-        [Required(ErrorMessage = "Please Provide your firstname", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your firstname", AllowEmptyStrings = false)]
         public string Firstname { get; set; }
-        [Required(ErrorMessage = "Please Provide lastname", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide lastname", AllowEmptyStrings = false)]
         public string Lastname { get; set; }
-        [Required(ErrorMessage = "Please Provide adress1", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide adress1", AllowEmptyStrings = false)]
         public string Address1 { get; set; }
-        [Required(ErrorMessage = "Please Provide adress2", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide adress2", AllowEmptyStrings = false)]
         public string Address2 { get; set; }
-        [Required(ErrorMessage = "Please Provide city", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide city", AllowEmptyStrings = false)]
         public string City { get; set; }
-        [Required(ErrorMessage = "Please Provide state", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide state", AllowEmptyStrings = false)]
         [Display(Name = "State")]
         public string St { get; set; }
-        [Required(ErrorMessage = "Please Provide zip", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide zip", AllowEmptyStrings = false)]
         [Display(Name = "ZipCode")]
         public string Zip { get; set; }
-        [Required(ErrorMessage = "Please Provide UserName", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide UserName", AllowEmptyStrings = false)]
         public string Username { get; set; }
-        [Required(ErrorMessage = "Please Provide your password", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your password", AllowEmptyStrings = false)]
         [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
         [StringLength(200, MinimumLength = 8, ErrorMessage = "Password must be 8 char long")]
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
-        [Required(ErrorMessage = "Please Provide your PhoneNumber", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your PhoneNumber", AllowEmptyStrings = false)]
         [Display(Name = "PhoneNumber")]
         public string Phonenumber1 { get; set; }
-        [Required(ErrorMessage = "Please Provide your Email", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide your Email", AllowEmptyStrings = false)]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[0-9a-zA-Z]{2,3})$", ErrorMessage = "please provide valid email id")]
         public string Email { get; set; }
     }

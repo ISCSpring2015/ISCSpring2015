@@ -24,9 +24,9 @@ namespace Spring2015
         public int CurriculumID { get; set; }
         [Display(Name = "BkLevel1Number")]
         public int NumberLevel1 { get; set; }
-        [Required(ErrorMessage = "Please Provide Name", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Please Provide ShortName", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "**Please Provide ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
     
         public virtual ICollection<BKLevel2> BKLevel2 { get; set; }

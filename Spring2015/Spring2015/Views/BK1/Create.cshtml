@@ -31,20 +31,22 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Name, new { rows = "2", cols = "50" })
-                @Html.ValidationMessageFor(model => model.Name)
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
+                @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ShortName, new { rows = "1", cols = "50" })
-                @Html.ValidationMessageFor(model => model.ShortName)
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
+
+        
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

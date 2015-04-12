@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OutcomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
@@ -360,6 +361,11 @@
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Outcome\Create.cshtml" />
+    <Content Include="Views\Outcome\Delete.cshtml" />
+    <Content Include="Views\Outcome\Details.cshtml" />
+    <Content Include="Views\Outcome\Edit.cshtml" />
+    <Content Include="Views\Outcome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
