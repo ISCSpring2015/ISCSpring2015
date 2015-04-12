@@ -24,11 +24,16 @@
      @if (Request.IsAuthenticated)
 {                                           @Html.ActionLink("Curriculum", "Index", "Curriculum",null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
                                                 @Html.ActionLink("Reports", "Index", "Curriculum", null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
-
-   
-        @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
+        
     }
-   
+    
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   @if (Request.IsAuthenticated)
+   {
+       @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
+   }
 
 
 
@@ -70,6 +75,8 @@
                 @:> @Html.ActionLink("SubSkill", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
             }
             
+           
+            
             if (ViewContext.RouteData.Values["controller"].ToString() == "Section")
             {
                @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
@@ -83,6 +90,15 @@
                 @:> @Html.ActionLink("Section:" + TempData["SectionName"], "Index", "Section", new { @id = TempData["CurriculumID"] }, null)
              //   @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Course", ViewContext.RouteData.Values["controller"].ToString())
                 @:> @Html.ActionLink("Course", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+            }
+            
+            if (ViewContext.RouteData.Values["controller"].ToString() == "Outcome")
+            {
+                @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
+            @:> @Html.ActionLink("Section:" + TempData["SectionName"], "Index", "Section", new { @id = TempData["CurriculumID"] }, null)
+                @:> @Html.ActionLink("Course:" + TempData["Course_Name"], "Index", "Course", new { @id = TempData["SectionID"] }, null)
+               // @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "SubSkill", ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Outcome", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "BK1")
