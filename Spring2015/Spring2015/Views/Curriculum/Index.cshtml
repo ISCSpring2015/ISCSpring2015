@@ -98,8 +98,15 @@
 @foreach (var item in Model) {
     <tr>
         
-        <td><input type="radio" id="radiobtn" name="group1" value="@item.CurriculumID" /></td>
         <td>
+@{if(Convert.ToInt32(TempData["CurriculumID"])==item.CurriculumID){
+        <input type="radio" id="radiobtn" name="group1" value="@item.CurriculumID" checked="checked" />
+}else{
+       <input type="radio" id="radiobtn" name="group1" value="@item.CurriculumID" />
+  } 
+  }    
+     </td>
+        <td align="center">
             @Html.DisplayFor(modelItem => item.ShortName)
             
         </td>

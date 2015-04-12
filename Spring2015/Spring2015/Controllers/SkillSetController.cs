@@ -24,6 +24,7 @@ namespace Spring2015.Controllers
                 {
                     cur_id = (int)TempData["CurriculumID"];
                 }
+                else { TempData["CurriculumID"] = cur_id; }
                 List<SkillSet> skillsetlist = new List<SkillSet>();
                 if (cur_id > 0)
                 {
@@ -31,8 +32,8 @@ namespace Spring2015.Controllers
                     // Response.Write("Curriculum Id:" + cur_id);
                     // skillsetlist=skillsetlist.
                     skillsetlist = db.SkillSets.Where(t => t.CurriculumID == cur_id).ToList();
-                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    TempData["CurriculumName"] = (string)cur.Name;
+                   var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    TempData["CurriculumName"] = (string)cur.ShortName;
                 }
                 TempData.Keep();
 
