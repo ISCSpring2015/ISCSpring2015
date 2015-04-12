@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Spring2015.Course>
+
+@{
+    // ViewBag.Title = "Index";
+}
+
+<h2>List Course</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CatalogCopy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prerequisites)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YearInCurriculum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scope)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Topics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discussion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section.Name)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <input type="radio" name="RdCourse" id="@item.CourseID" value=@item.CourseID />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CatalogCopy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prerequisites)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearInCurriculum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Scope)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discussion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Section.Name)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CourseID })
+            </td>
+        </tr>
+    }
+
+</table>
