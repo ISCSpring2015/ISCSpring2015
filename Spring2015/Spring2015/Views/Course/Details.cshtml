@@ -1,0 +1,90 @@
+﻿@model Spring2015.Course
+
+@{
+   // ViewBag.Title = "Details";
+}
+
+<h2>Details Of Course</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatalogCopy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatalogCopy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prerequisites)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prerequisites)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearInCurriculum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearInCurriculum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scope)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discussion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discussion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

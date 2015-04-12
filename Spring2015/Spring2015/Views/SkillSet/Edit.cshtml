@@ -4,7 +4,7 @@
     //ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit SkillSet</h2>
 
 @using (Html.BeginForm())
 {
@@ -19,7 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShortName)
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
@@ -53,12 +53,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.CurriculumID })
 </div>

@@ -17,33 +17,38 @@ namespace Spring2015.Controllers
         // GET: /Skill/
         public ActionResult Index(int? id)
         {
-            int? skillset_id = (id ?? 0);
-            if (TempData["skillset_id"] != null && skillset_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                skillset_id = (int)TempData["skillset_id"];
-            }
-            else { TempData["skillset_id"] = skillset_id; }
-            List<Skill> skilllist = new List<Skill>();
-            if (skillset_id > 0)
-            {
-                //Response.Write("Skillset Id:" + skillset_id);
-                // skillsetlist=skillsetlist.
-                skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
-                var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
-                TempData["skillset_Name"] = (string)cur.Name;
-            }
-            TempData.Keep();
-            //else
-            //{
-            //    skilllist = db.Skills.ToList();
-            //}
+                int? skillset_id = (id ?? 0);
+                if (TempData["skillset_id"] != null && skillset_id == 0)
+                {
+                    skillset_id = (int)TempData["skillset_id"];
+                }
+                else { TempData["skillset_id"] = skillset_id; }
+                List<Skill> skilllist = new List<Skill>();
+                if (skillset_id > 0)
+                {
+                    //Response.Write("Skillset Id:" + skillset_id);
+                    // skillsetlist=skillsetlist.
+                    skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
+                    var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
+                    TempData["skillset_Name"] = (string)cur.ShortName;
+                }
+                TempData.Keep();
+                //else
+                //{
+                //    skilllist = db.Skills.ToList();
+                //}
 
-            return View("Index", skilllist);
+                return View("Index", skilllist);
+            }
+            else { return RedirectToAction("Login", "Person"); }
         }
 
         // GET: /Skill/Details/5
         public ActionResult Details(int? id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,7 +92,7 @@ namespace Spring2015.Controllers
                 db.Skills.Add(skill);
                 db.SaveChanges();
                 TempData.Keep();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { @id = skill.SkillsetID });
             }
 
             ViewBag.SkillsetID = new SelectList(db.SkillSets, "SkillsetID", "Name", skill.SkillsetID);
@@ -123,8 +128,8 @@ namespace Spring2015.Controllers
             {
                 db.Entry(skill).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData.Keep(); 
-                return RedirectToAction("Index");
+                TempData.Keep();
+                return RedirectToAction("Index", new { @id = skill.SkillsetID });
             }
             ViewBag.SkillsetID = new SelectList(db.SkillSets, "SkillsetID", "Name", skill.SkillsetID);
             return View(skill);

@@ -14,9 +14,11 @@ namespace Spring2015.Controllers
     {
         private ExamdbContext db = new ExamdbContext();
 
-        // GET: /Curriculum/
+        // GET: /Curriculum/123
         public ActionResult Index()
         {
+            TempData.Keep();
+
             if (Convert.ToBoolean(Session["UserValid"]) == true) {
             return View(db.Curricula.ToList());
             }
@@ -26,6 +28,7 @@ namespace Spring2015.Controllers
         // GET: /Curriculum/Details/5
         public ActionResult Details(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -65,6 +68,7 @@ namespace Spring2015.Controllers
         // GET: /Curriculum/Edit/5
         public ActionResult Edit(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,8 +88,10 @@ namespace Spring2015.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="CurriculumID,Name,Shortname,InitialDate,ReleaseDate,CloseDate,Purpose")] Curriculum curriculum)
         {
+            TempData.Keep();
             if (ModelState.IsValid)
             {
+                
                 db.Entry(curriculum).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -96,6 +102,7 @@ namespace Spring2015.Controllers
         // GET: /Curriculum/Delete/5
         public ActionResult Delete(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -121,11 +128,13 @@ namespace Spring2015.Controllers
 
         protected override void Dispose(bool disposing)
         {
+            TempData.Keep();
             if (disposing)
             {
                 db.Dispose();
             }
             base.Dispose(disposing);
+
         }
     }
 }

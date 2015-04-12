@@ -177,9 +177,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BK1Controller.cs" />
     <Compile Include="Controllers\Bk2Controller.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\CurriculumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SkillSetController.cs" />
     <Compile Include="Controllers\SubSkillController.cs" />
@@ -273,6 +275,7 @@
       <DependentUpon>ExamDataModel.edmx</DependentUpon>
       <LastGenOutput>ExamDataModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\Isc567Spring2015.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -347,6 +350,17 @@
     <Content Include="Views\Bk2\Details.cshtml" />
     <Content Include="Views\Bk2\Edit.cshtml" />
     <Content Include="Views\Bk2\Index.cshtml" />
+    <Content Include="Views\Section\Create.cshtml" />
+    <Content Include="Views\Section\Delete.cshtml" />
+    <Content Include="Views\Section\Details.cshtml" />
+    <Content Include="Views\Section\Edit.cshtml" />
+    <Content Include="Views\Section\Index.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Person\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

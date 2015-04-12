@@ -1,24 +1,37 @@
-﻿@model Spring2015.Curriculum
+﻿@model Spring2015.Section
 
 @{
-    //ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-@*<h2>Create</h2>*@
+<h2>Edit Section</h2>
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h2>Add New Curriculum</h2>
+        @*<h4>Section</h4>*@
         <hr />
         @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.SectionID)
+     
+        @Html.HiddenFor(model => model.CurriculumID)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CurriculumID", String.Empty)
+                @Html.ValidationMessageFor(model => model.CurriculumID)
+            </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "1" })
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2",  })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -26,7 +39,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1",  })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
@@ -34,19 +47,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Purpose, new { rows = "5", cols = "30" })
+                @Html.TextAreaFor(model => model.Purpose,  new { cols = "100", rows = "2" })
                 @Html.ValidationMessageFor(model => model.Purpose)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.CurriculumID })
 </div>
+
+

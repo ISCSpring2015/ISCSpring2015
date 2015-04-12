@@ -17,32 +17,37 @@ namespace Spring2015.Controllers
         // GET: /BK1/11
         public ActionResult Index(int? id)
         {
-            int? cur_id = (id ?? 0);
-            if (TempData["CurriculumID"] != null && cur_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                cur_id = (int)TempData["CurriculumID"];
-            }
-            List<BKLevel1> BKLevel1list = new List<BKLevel1>();
-            if (cur_id > 0)
-            {
-                TempData["CurriculumID"] = cur_id;
+                int? cur_id = (id ?? 0);
+                if (TempData["CurriculumID"] != null && cur_id == 0)
+                {
+                    cur_id = (int)TempData["CurriculumID"];
+                }
+                List<BKLevel1> BKLevel1list = new List<BKLevel1>();
+                if (cur_id > 0)
+                {
+                    TempData["CurriculumID"] = cur_id;
 
-                //Response.Write("Curriculum Id:" + cur_id);
-                // skillsetlist=skillsetlist.
-                BKLevel1list = db.BKLevel1.Where(t => t.CurriculumID == cur_id).ToList();
-                var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                TempData["CurriculumName"] = (string)cur.Name;
-            }
+                    //Response.Write("Curriculum Id:" + cur_id);
+                    // skillsetlist=skillsetlist.
+                    BKLevel1list = db.BKLevel1.Where(t => t.CurriculumID == cur_id).ToList();
+                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    TempData["CurriculumName"] = (string)cur.ShortName;
+                }
                 TempData.Keep();
-            //else
-            //{
-            //    BKLevel1list = db.BKLevel1.ToList();
-            //}
-            return View("Index", BKLevel1list);
+                //else
+                //{
+                //    BKLevel1list = db.BKLevel1.ToList();
+                //}
+                return View("Index", BKLevel1list);
 
-            //var bklevel1 = db.BKLevel1.Include(b => b.Curriculum);
-            //return View(bklevel1.ToList());
+                //var bklevel1 = db.BKLevel1.Include(b => b.Curriculum);
+                //return View(bklevel1.ToList());
+            }
+            else { return RedirectToAction("Login", "Person"); }
         }
+        
 
         // GET: /BK1/Details/5
         public ActionResult Details(int? id)
