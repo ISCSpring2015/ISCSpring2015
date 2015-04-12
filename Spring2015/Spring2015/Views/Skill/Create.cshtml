@@ -18,7 +18,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ShortName, new { rows = "1", cols = "70" })
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Name, new { rows = "2", cols = "70" })
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2" })
                 @Html.ValidationMessageFor(model => model.Name)
                 @Html.HiddenFor(model => model.SkillsetID)
                 @Html.HiddenFor(model => model.SkillSetNum1)
