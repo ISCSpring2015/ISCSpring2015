@@ -33,7 +33,7 @@ namespace Spring2015.Controllers
                     // skillsetlist=skillsetlist.
                     BKLevel1list = db.BKLevel1.Where(t => t.CurriculumID == cur_id).ToList();
                     var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    TempData["CurriculumName"] = (string)cur.Name;
+                    TempData["CurriculumName"] = (string)cur.ShortName;
                 }
                 TempData.Keep();
                 //else

@@ -35,7 +35,7 @@ namespace Spring2015.Controllers
                     // skillsetlist=skillsetlist.
                     Subskilllist = db.SubSkills.Where(t => t.SkillID == skill_id).ToList();
                     var skill = db.Skills.Where(t => t.SkillID == skill_id).Single();
-                    TempData["skill_Name"] = (string)skill.Name;
+                    TempData["skill_Name"] = (string)skill.ShortName;
                 }
                 TempData.Keep();
                 //else
@@ -51,6 +51,7 @@ namespace Spring2015.Controllers
         // GET: /SubSkill/Details/5
         public ActionResult Details(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -97,7 +98,7 @@ namespace Spring2015.Controllers
             {
                 db.SubSkills.Add(subskill);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { @id = TempData["skill_id"] });
             }
 
             ViewBag.SkillID = new SelectList(db.Skills, "SkillID", "Name", subskill.SkillID);
@@ -108,6 +109,9 @@ namespace Spring2015.Controllers
         // GET: /SubSkill/Edit/5
         public ActionResult Edit(int? id)
         {
+
+            TempData.Keep();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -127,13 +131,13 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SubskillsID,SkillID,OutcomeID,BKLevel2Id,SkillSetNum1,SkillNum2,SubSkillNum3,Name,ShortName,JobAdWords")] SubSkill subskill)
+        public ActionResult Edit([Bind(Include="SubskillsID,SkillID,SkillSetNum1,SkillNum2,SubSkillNum3,Name,ShortName,JobAdWords")] SubSkill subskill)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(subskill).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index",new{@id=TempData["skill_id"]});
             }
             ViewBag.SkillID = new SelectList(db.Skills, "SkillID", "Name", subskill.SkillID);
             ViewBag.SubskillsID = new SelectList(db.SubskillsinBk2, "SubskillsBk2ID", "SubskillsBk2ID", subskill.SubskillsID);
@@ -143,6 +147,7 @@ namespace Spring2015.Controllers
         // GET: /SubSkill/Delete/5
         public ActionResult Delete(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

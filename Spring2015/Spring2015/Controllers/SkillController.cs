@@ -32,7 +32,7 @@ namespace Spring2015.Controllers
                     // skillsetlist=skillsetlist.
                     skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
                     var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
-                    TempData["skillset_Name"] = (string)cur.Name;
+                    TempData["skillset_Name"] = (string)cur.ShortName;
                 }
                 TempData.Keep();
                 //else
@@ -48,6 +48,7 @@ namespace Spring2015.Controllers
         // GET: /Skill/Details/5
         public ActionResult Details(int? id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
