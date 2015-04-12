@@ -31,7 +31,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2",  })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ShortName, new { rows = "1", cols = "70" })
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1",  })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Purpose, new { rows = "2", cols = "150" })
+                @Html.TextAreaFor(model => model.Purpose,  new { cols = "100", rows = "2" })
                 @Html.ValidationMessageFor(model => model.Purpose)
             </div>
         </div>
