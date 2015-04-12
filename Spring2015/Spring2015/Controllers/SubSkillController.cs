@@ -127,7 +127,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SubskillsID,SkillID,OutcomeID,BKLevel2Id,SkillSetNum1,SkillNum2,SubSkillNum3,Name,ShortName,JobAdWords")] SubSkill subskill)
+        public ActionResult Edit([Bind(Include="SubskillsID,SkillID,SkillSetNum1,SkillNum2,SubSkillNum3,Name,ShortName,JobAdWords")] SubSkill subskill)
         {
             if (ModelState.IsValid)
             {

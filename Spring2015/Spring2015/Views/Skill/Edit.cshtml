@@ -44,6 +44,9 @@
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
+                @Html.HiddenFor(model => model.SkillsetID)
+                @Html.HiddenFor(model => model.SkillSetNum1)
+                @Html.HiddenFor(model => model.SkillNum2)
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
