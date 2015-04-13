@@ -32,7 +32,7 @@ namespace Spring2015.Controllers
                     // skillsetlist=skillsetlist.
                     skilllist = db.Skills.Where(t => t.SkillsetID == skillset_id).ToList();
                     var cur = db.SkillSets.Where(t => t.SkillsetID == skillset_id).Single();
-                    TempData["skillset_Name"] = (string)cur.ShortName;
+                    TempData["skillset_Name"] = (string)cur.Name;
                 }
                 TempData.Keep();
                 //else
