@@ -35,7 +35,7 @@ namespace Spring2015.Controllers
                     // skillsetlist=skillsetlist.
                     Subskilllist = db.SubSkills.Where(t => t.SkillID == skill_id).ToList();
                     var skill = db.Skills.Where(t => t.SkillID == skill_id).Single();
-                    TempData["skill_Name"] = (string)skill.ShortName;
+                    TempData["skill_Name"] = (string)skill.Name;
                 }
                 TempData.Keep();
                 //else

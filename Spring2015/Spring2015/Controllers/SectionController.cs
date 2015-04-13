@@ -30,7 +30,7 @@ namespace Spring2015.Controllers
                     TempData["CurriculumID"] = cur_id;
                     Sectionlist = db.Sections.Where(t => t.CurriculumID == cur_id).ToList();
                     var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    TempData["CurriculumName"] = (string)cur.ShortName;
+                    TempData["CurriculumName"] = (string)cur.Name;
                 }
                 TempData.Keep();
 

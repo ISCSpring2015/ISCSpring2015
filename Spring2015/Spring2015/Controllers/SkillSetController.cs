@@ -32,16 +32,19 @@ namespace Spring2015.Controllers
                     // Response.Write("Curriculum Id:" + cur_id);
                     // skillsetlist=skillsetlist.
                     skillsetlist = db.SkillSets.Where(t => t.CurriculumID == cur_id).ToList();
-                   var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                    TempData["CurriculumName"] = (string)cur.ShortName;
+                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    TempData["CurriculumName"] = (string)cur.Name;
                 }
                 TempData.Keep();
 
 
                 return View("Index", skillsetlist);
             }
+
             else { return RedirectToAction("Login", "Person"); }
         }
+        
+
 
         // GET: /SkillSet/Details/5
         public ActionResult Details(int? id)
