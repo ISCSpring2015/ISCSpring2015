@@ -37,11 +37,11 @@
 <table class="table">
     <tr>
         <th></th>
-        <th>
+        <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
 
-        <th>
+        <th style="width:100px">
             @Html.DisplayNameFor(model => model.Name)
         </th>
 
@@ -60,7 +60,7 @@
             <td>
                 <input type="radio" name="RdSection" id="@item.SectionID" value=@item.SectionID />
             </td>
-            <td>
+            <td style="padding-left:30px">
                 @Html.DisplayFor(modelItem => item.ShortName)
             </td>
 

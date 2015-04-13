@@ -29,10 +29,10 @@
 <table class="table">
     <tr>
         <th></th>
-        <th>
+        <th style="width:100px">
             @Html.DisplayNameFor(model => model.skillSetNum1)
         </th>
-        <th>
+        <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
         <th>
@@ -50,10 +50,10 @@
         <td>
             <input type="radio" name="RdSkillset" id="@item.SkillsetID" value=@item.SkillsetID />
         </td>
-        <td>
+        <td style="padding-left:45px">
             @Html.DisplayFor(modelItem => item.skillSetNum1)
         </td>
-        <td>
+        <td style="padding-left:30px">
             @Html.DisplayFor(modelItem => item.ShortName)
         </td>
         <td>
