@@ -123,6 +123,8 @@ namespace Spring2015.Controllers
         // GET: /Section/Delete/5
         public ActionResult Delete(int? id)
         {
+            TempData.Keep();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

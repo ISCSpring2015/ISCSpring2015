@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1",  })
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "2",  })
                 @Html.ValidationMessageFor(model => model.ShortName)
                
             </div>
@@ -45,7 +45,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Purpose, new { cols = "100", rows = "2" })
+                @Html.TextAreaFor(model => model.Purpose, new { cols = "100", rows = "8" })
                 @Html.ValidationMessageFor(model => model.Purpose)
             </div>
         </div>
