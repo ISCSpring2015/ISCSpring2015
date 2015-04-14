@@ -366,6 +366,7 @@
     <Content Include="Views\Outcome\Details.cshtml" />
     <Content Include="Views\Outcome\Edit.cshtml" />
     <Content Include="Views\Outcome\Index.cshtml" />
+    <Content Include="Views\Person\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
