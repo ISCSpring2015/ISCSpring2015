@@ -29,7 +29,7 @@ namespace Spring2015.Controllers
                {
                    FormsAuthentication.SetAuthCookie(pid.Username, false);
                    Session["UserValid"] = true;
-                   return RedirectToAction("Index","Curriculum");
+                   return RedirectToAction("Home","Person");
                }
                else
                {
@@ -96,6 +96,12 @@ namespace Spring2015.Controllers
                 }
             }
             return isValid;
+        }
+
+
+        public ActionResult Home()
+        {
+            return View();
         }
 	}
 }

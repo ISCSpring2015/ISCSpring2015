@@ -4,13 +4,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Skill Details</h2>
 
 <div>
-    <h4>Skill</h4>
+    @*<h4>Skill</h4>*@
 	<hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.SkillSetNum1)
         </dt>
 
@@ -24,15 +24,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.SkillNum2)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.ShortName)
@@ -41,18 +33,27 @@
         <dd>
             @Html.DisplayFor(model => model.ShortName)
         </dd>
-
         <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        
+
+        @*<dt>
             @Html.DisplayNameFor(model => model.SkillSet.Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.SkillSet.Name)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.SkillID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index",new { id=Model.SkillsetID })
 </p>

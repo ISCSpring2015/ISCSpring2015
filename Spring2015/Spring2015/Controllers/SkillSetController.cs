@@ -17,26 +17,34 @@ namespace Spring2015.Controllers
         // GET: /SkillSet/
         public ActionResult Index(int? id)
         {
-            int? cur_id = (id ?? 0);
-            if (TempData["CurriculumID"] != null && cur_id == 0)
+            if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
-                cur_id = (int)TempData["CurriculumID"];
-            }
-            List<SkillSet> skillsetlist = new List<SkillSet>();
-            if (cur_id > 0)
-            {
-                TempData["CurriculumID"] = cur_id;
-                // Response.Write("Curriculum Id:" + cur_id);
-                // skillsetlist=skillsetlist.
-                skillsetlist = db.SkillSets.Where(t => t.CurriculumID == cur_id).ToList();
-                var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
-                TempData["CurriculumName"] = (string)cur.Name;
-            }
-            TempData.Keep();
-          
+                int? cur_id = (id ?? 0);
+                if (TempData["CurriculumID"] != null && cur_id == 0)
+                {
+                    cur_id = (int)TempData["CurriculumID"];
+                }
+                else { TempData["CurriculumID"] = cur_id; }
+                List<SkillSet> skillsetlist = new List<SkillSet>();
+                if (cur_id > 0)
+                {
+                    TempData["CurriculumID"] = cur_id;
+                    // Response.Write("Curriculum Id:" + cur_id);
+                    // skillsetlist=skillsetlist.
+                    skillsetlist = db.SkillSets.Where(t => t.CurriculumID == cur_id).ToList();
+                    var cur = db.Curricula.Where(t => t.CurriculumID == cur_id).Single();
+                    TempData["CurriculumName"] = (string)cur.Name;
+                }
+                TempData.Keep();
 
-            return View("Index", skillsetlist);
+
+                return View("Index", skillsetlist);
+            }
+
+            else { return RedirectToAction("Login", "Person"); }
         }
+        
+
 
         // GET: /SkillSet/Details/5
         public ActionResult Details(int? id)
@@ -50,6 +58,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(skillset);
         }
 
@@ -134,6 +143,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(skillset);
         }
 

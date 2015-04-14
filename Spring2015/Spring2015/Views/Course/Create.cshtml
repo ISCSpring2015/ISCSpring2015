@@ -1,0 +1,113 @@
+﻿@model Spring2015.Course
+
+@{
+    //ViewBag.Title = "Create";
+}
+
+<h2>Create Course</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+
+                @Html.HiddenFor(model => model.SectionID, "SectionID")
+
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.SectionID, "SectionID", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("SectionID", String.Empty)
+                    @Html.ValidationMessageFor(model => model.SectionID)
+                </div>
+            </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
+                @Html.ValidationMessageFor(model => model.ShortName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.Name)
+                @Html.HiddenFor(model => model.SectionID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CatalogCopy, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.CatalogCopy, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.CatalogCopy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Prerequisites, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Prerequisites, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.Prerequisites)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearInCurriculum, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.YearInCurriculum, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.YearInCurriculum)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Scope, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Scope, new { cols = "70", rows = "1" })
+                @Html.ValidationMessageFor(model => model.Scope)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Topics, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Topics, new { cols = "70", rows = "2" })
+                @Html.ValidationMessageFor(model => model.Topics)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Discussion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Discussion, new { cols = "70", rows = "4" })
+                @Html.ValidationMessageFor(model => model.Discussion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = Model.SectionID })
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

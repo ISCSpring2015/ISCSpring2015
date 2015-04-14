@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>BKLevel1 Details</h2>
 
 <div>
-    <h4>BKLevel1</h4>
+    @*<h4>BKLevel1</h4>*@
 	<hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,14 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ShortName)
         </dt>
 
@@ -35,16 +27,26 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        
+
+        @*<dt>
             @Html.DisplayNameFor(model => model.Curriculum.Name)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Curriculum.Name)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BKLevel1ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.CurriculumID })
 </p>

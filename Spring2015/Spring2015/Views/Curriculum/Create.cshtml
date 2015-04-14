@@ -6,19 +6,19 @@
 
 @*<h2>Create</h2>*@
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Add New Curriculum</h4>
+        <h2>Add New Curriculum</h2>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+                @Html.TextAreaFor(model => model.Name, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ShortName, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ShortName)
+                @Html.TextAreaFor(model => model.ShortName, new { cols = "70", rows = "1" })
                 @Html.ValidationMessageFor(model => model.ShortName)
             </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Purpose, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Purpose)
+                @Html.TextAreaFor(model => model.Purpose, new {cols = "70", rows = "3" })
                 @Html.ValidationMessageFor(model => model.Purpose)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </div>
     </div>
