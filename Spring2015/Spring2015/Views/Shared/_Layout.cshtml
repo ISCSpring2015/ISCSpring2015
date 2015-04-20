@@ -9,6 +9,7 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="@Url.Content("~/bundles/bootstrap")"></script>
 </head>
 
 <body>
@@ -20,28 +21,50 @@
         <header>
 
             <div class="container">
-                <a href="http://localhost:58936/Person/Home">
-                    <img src="/images/logo.jpg" alt="Home">
-                </a><span style="color:white; font-size: medium; vertical-align: bottom;">
-                
-                Exam Development & Testing Services
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Request.IsAuthenticated)
-                {                                           @Html.ActionLink("Curriculum", "Index", "Curriculum", null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
-                    @Html.ActionLink("Reports", "Index", "Curriculum", null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
+                <div>
+                    <div><a href="http://localhost:58936/Person/Home">
+    <img src="/images/logo.jpg" alt="Home">
+</a><span style="color:white; font-size: medium; vertical-align: bottom;">
 
-                }
+    Exam Development & Testing Services</span>
+</div>
+<div><nav class="navbar navbar-default">
+    @* <a class="navbar-brand" href="#"><img src="Images/logo.jpg" alt=""></a>*@
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Home</a></li>
                 @if (Request.IsAuthenticated)
                 {
-                    @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
+                <li>
+                    @Html.ActionLink("Curriculum", "Index", "Curriculum", null, new { })
+                </li>
+                                        <li>
+                                            @Html.ActionLink("Reports", "Index", "Curriculum", null, new { })
+                                        </li>
+                                        <li>                                            @Html.ActionLink("Log Out", "Logout", "Person", null, new { })</li>
                 }
 
-
-
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+</div>
+                </div>
+                 
                 </span>
             </div>
 
