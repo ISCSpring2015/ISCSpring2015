@@ -33,7 +33,7 @@ namespace Spring2015.Controllers
                }
                else
                {
-                   ModelState.AddModelError("","Login data is in correct");
+                   ModelState.AddModelError("","Login data is incorrect");
                }
             }
             return View(pid);
