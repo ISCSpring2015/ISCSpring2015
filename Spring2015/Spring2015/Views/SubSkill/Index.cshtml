@@ -46,46 +46,58 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Count(); i++)
+{
+
     <tr>
+
         <td>
-            <input type="radio" name="RdSubSkill" id="@item.SubskillsID" value=@item.SubskillsID />
+            @{if (Convert.ToInt32(TempData["SubskillsID"]) == Model.ElementAt(i).SubskillsID || (i == 0 && TempData["SubskillsID"] == null))
+            {
+                <input type="radio" name="RdSubskills" id="@Model.ElementAt(i).SubskillsID" value=@Model.ElementAt(i).SubskillsID checked="checked" />
+            }
+            else
+            {
+                <input type="radio" name="RdSubskills" id="@Model.ElementAt(i).SubskillsID" value=@Model.ElementAt(i).SubskillsID />
+            }
+            }
+
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.OutcomeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BKLevel2Id)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.OutcomeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BKLevel2Id)
+            </td>*@
         @*<td>
-            @Html.DisplayFor(modelItem => item.SkillSetNum1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SkillNum2)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.SkillSetNum1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SkillNum2)
+            </td>*@
         <td style="padding-left:45px">
-            @Html.DisplayFor(modelItem => item.SkillSetNum1) . @Html.DisplayFor(modelItem => item.SkillNum2) . @Html.DisplayFor(modelItem => item.SubSkillNum3)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).SkillSetNum1) . @Html.DisplayFor(modelItem => Model.ElementAt(i).SkillNum2) . @Html.DisplayFor(modelItem => Model.ElementAt(i).SubSkillNum3)
         </td>
-        
+
         <td style="padding-left:30px">
-            @Html.DisplayFor(modelItem => item.ShortName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JobAdWords)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).JobAdWords)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.Skill.Name)
-        </td>
+                @Html.DisplayFor(modelItem => item.Skill.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubskillsinBk2.SubskillsBk2ID)
+            </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.SubskillsinBk2.SubskillsBk2ID)
-        </td>*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SubskillsID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SubskillsID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SubskillsID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).SubskillsID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).SubskillsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).SubskillsID })
         </td>
     </tr>
 }

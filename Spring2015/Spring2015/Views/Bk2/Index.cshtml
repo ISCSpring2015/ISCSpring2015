@@ -45,33 +45,44 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <input type="radio" name="RdBKLevel2" id="@item.BKLevel2ID" value=@item.BKLevel2ID />
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.NumberLevel1)
-                </td>*@
-            <td style="padding-left:45px">
-                @Html.DisplayFor(modelItem => item.NumberLevel1). @Html.DisplayFor(modelItem => item.NumberLevel2)
-            </td>
-            <td style="padding-left:30px">
-                @Html.DisplayFor(modelItem => item.ShortName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.BKLevel1.Name)
-                </td>*@
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.BKLevel2ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.BKLevel2ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BKLevel2ID })
-            </td>
-        </tr>
-    }
+    @for (int i = 0; i < Model.Count(); i++)
+{
+
+    <tr>
+
+        <td>
+            @{if (Convert.ToInt32(TempData["BkLevel2_id"]) == Model.ElementAt(i).BKLevel2ID || (i == 0 && TempData["BKLevel2ID"] == null))
+            {
+                <input type="radio" name="RdBKLevel2" id="@Model.ElementAt(i).BKLevel2ID" value=@Model.ElementAt(i).BKLevel2ID checked="checked" />
+            }
+            else
+            {
+                <input type="radio" name="RdBKLevel2" id="@Model.ElementAt(i).BKLevel2ID" value=@Model.ElementAt(i).BKLevel2ID />
+            }
+            }
+
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => item.NumberLevel1)
+            </td>*@
+        <td style="padding-left:45px">
+            @Html.DisplayFor(modelItem => @Model.ElementAt(i).NumberLevel1). @Html.DisplayFor(modelItem => @Model.ElementAt(i).NumberLevel2)
+        </td>
+        <td style="padding-left:30px">
+            @Html.DisplayFor(modelItem => @Model.ElementAt(i).ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @Model.ElementAt(i).Name)
+        </td>
+        @*<td>
+                @Html.DisplayFor(modelItem => item.BKLevel1.Name)
+            </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = @Model.ElementAt(i).BKLevel2ID }) |
+            @Html.ActionLink("Details", "Details", new { id = @Model.ElementAt(i).BKLevel2ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = @Model.ElementAt(i).BKLevel2ID })
+        </td>
+    </tr>
+}
 
 </table>

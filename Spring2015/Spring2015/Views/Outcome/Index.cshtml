@@ -27,27 +27,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Count(); i++)
+{
+
     <tr>
+
         <td>
-            <input type="radio" name="RdOutcome" id="@item.CourseID" value=@item.CourseID />
+            @{if (Convert.ToInt32(TempData["OutcomeID "]) == Model.ElementAt(i).OutcomeID || (i == 0 && TempData["OutcomeID "] == null))
+{
+    <input type="radio" name="RdOutcome" id="@Model.ElementAt(i).OutcomeID D" value=@Model.ElementAt(i).OutcomeID checked="checked" />
+}
+              else
+              {
+                <input type="radio" name="RdOutcome" id="@Model.ElementAt(i).OutcomeID " value=@Model.ElementAt(i).OutcomeID />
+              }
+}
+
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShortName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DepthOfKnowledge)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).DepthOfKnowledge)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.Course.Name)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OutcomeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OutcomeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OutcomeID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).OutcomeID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).OutcomeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).OutcomeID })
         </td>
     </tr>
 }

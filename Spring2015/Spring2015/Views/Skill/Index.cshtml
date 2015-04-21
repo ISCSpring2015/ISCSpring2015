@@ -70,33 +70,45 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Count(); i++)
+{
+
     <tr>
+
         <td>
-            <input type="radio" name="RdSkill" id="@item.SkillID" value=@item.SkillID />
+            @{if (Convert.ToInt32(TempData["SkillID"]) == Model.ElementAt(i).SkillID || (i == 0 && TempData["SkillID"] == null))
+{
+    <input type="radio" name="RdSkill" id="@Model.ElementAt(i).SkillID" value=@Model.ElementAt(i).SkillID checked="checked" />
+}
+              else
+              {
+                <input type="radio" name="RdSkill" id="@Model.ElementAt(i).SkillID" value=@Model.ElementAt(i).SkillID />
+              }
+}
+
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.SkillSetNum1)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.SkillSetNum1)
+            </td>*@
         <td style="padding-left:45px">
-            @Html.DisplayFor(modelItem => item.SkillSetNum1).@Html.DisplayFor(modelItem => item.SkillNum2)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).SkillSetNum1).@Html.DisplayFor(modelItem => Model.ElementAt(i).SkillNum2)
         </td>
-        <td style ="padding-left:30px">
-            @Html.DisplayFor(modelItem => item.ShortName)
+        <td style="padding-left:30px">
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
         @*<td>
-            @Html.DisplayFor(modelItem => item.ShortName)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>*@
         @*<td>
-            @Html.DisplayFor(modelItem => item.SkillSet.Name)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.SkillSet.Name)
+            </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SkillID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SkillID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SkillID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).SkillID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).SkillID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).SkillID })
         </td>
     </tr>
 }
