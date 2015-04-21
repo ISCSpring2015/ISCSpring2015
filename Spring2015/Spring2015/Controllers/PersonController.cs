@@ -33,7 +33,7 @@ namespace Spring2015.Controllers
                }
                else
                {
-                   ModelState.AddModelError("","Login data is in correct");
+                   ModelState.AddModelError("","Login data is incorrect");
                }
             }
             return View(pid);
@@ -75,6 +75,7 @@ namespace Spring2015.Controllers
                 ViewBag.Message = "Successfully done";
             }
             return View(pid);
+
         }
 
         public ActionResult LogOut()
