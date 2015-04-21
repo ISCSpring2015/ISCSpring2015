@@ -11,11 +11,14 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Login
     {
         public int UserID { get; set; }
+        [Required(ErrorMessage = "**Please Provide your Username", AllowEmptyStrings = false)]
         public string Username { get; set; }
+        [Required(ErrorMessage = "**Please Provide your Password", AllowEmptyStrings = false)]
         public string Password { get; set; }
         public string PasswordSalt { get; set; }
     }

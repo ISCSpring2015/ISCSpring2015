@@ -11,6 +11,7 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Course
     {
@@ -21,10 +22,13 @@ namespace Spring2015
     
         public int CourseID { get; set; }
         public Nullable<int> SectionID { get; set; }
+        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
+        [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public string CatalogCopy { get; set; }
         public string Prerequisites { get; set; }
+        [Required(ErrorMessage = "**Please Provide your YearInCurriculum", AllowEmptyStrings = false)]
         public string YearInCurriculum { get; set; }
         public string Scope { get; set; }
         public string Topics { get; set; }

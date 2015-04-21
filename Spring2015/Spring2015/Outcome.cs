@@ -11,6 +11,7 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Outcome
     {
@@ -22,9 +23,11 @@ namespace Spring2015
     
         public int OutcomeID { get; set; }
         public int CourseID { get; set; }
+         [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
+         [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
-        public Nullable<int> DepthOfKnowledge { get; set; }
+         public Nullable<int> DepthOfKnowledge { get; set; }
         public int OutcomeNumber { get; set; }
         public int SectionNumber { get; set; }
         public int CourseNumber { get; set; }
