@@ -25,6 +25,9 @@ namespace Spring2015
         public string Name { get; set; }
         public string ShortName { get; set; }
         public Nullable<int> DepthOfKnowledge { get; set; }
+        public int OutcomeNumber { get; set; }
+        public int SectionNumber { get; set; }
+        public int CourseNumber { get; set; }
     
         public virtual Course Course { get; set; }
         public virtual ICollection<OutcomeinBK2> OutcomeinBK2 { get; set; }

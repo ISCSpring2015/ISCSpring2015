@@ -70,13 +70,19 @@ namespace Spring2015.Controllers
         // GET: /Outcome/Create
         public ActionResult Create()
         {
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Name");
             Outcome outcome = new Outcome();
             List<Outcome> lastOutcome = new List<Outcome>();
             int Courseid = (int)TempData["Course_id"];
             lastOutcome = db.Outcomes.Where(t => t.CourseID == Courseid).ToList();
             var maxlast = lastOutcome.Count() - 1;
-            outcome.OutcomeID = lastOutcome[maxlast].OutcomeID + 1;
-            outcome.CourseID = Courseid;
+            outcome.OutcomeNumber = lastOutcome[maxlast].OutcomeNumber;
+            outcome.CourseNumber = lastOutcome[maxlast].CourseNumber + 1;
+            outcome.SectionNumber = lastOutcome[maxlast].SectionNumber;
+            outcome.CourseID = lastOutcome[maxlast].CourseID;
+            //outcome.OutcomeID = lastOutcome[maxlast].OutcomeID + 1;
+            //outcome.CourseID = Courseid;
+            TempData.Keep();
             return View(outcome);
             
             
@@ -90,7 +96,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="OutcomeID,CourseID,Name,ShortName,DepthOfKnowledge")] Outcome outcome)
+        public ActionResult Create([Bind(Include = "OutcomeID,CourseID,SectionNumber,CourseNumber,OutcomeNumber,Name,ShortName,DepthOfKnowledge")] Outcome outcome)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +130,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="OutcomeID,CourseID,Name,ShortName,DepthOfKnowledge")] Outcome outcome)
+        public ActionResult Edit([Bind(Include = "OutcomeID,CourseID,SectionNumber,CourseNumber,OutcomeNumber,Name,ShortName,DepthOfKnowledge")] Outcome outcome)
         {
             if (ModelState.IsValid)
             {

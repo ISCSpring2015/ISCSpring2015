@@ -33,6 +33,7 @@
         <AssociationConnector Association="DATABASE_EDTSModel.FK_Subskills_SkillsID" ManuallyRouted="false" />
         <AssociationConnector Association="DATABASE_EDTSModel.Fk_SubskillsinBk2_SubskillsID" ManuallyRouted="false" />
         <AssociationConnector Association="DATABASE_EDTSModel.tblSubskillsinoutcome_SubskillsID" ManuallyRouted="false" />
+        <AssociationConnector Association="DATABASE_EDTSModel.Fk_SubskillsinBk2_SubskillsID1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

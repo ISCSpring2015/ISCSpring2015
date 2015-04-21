@@ -39,6 +39,10 @@
 
         </th>
         <th style="width:100px">
+            @Html.DisplayNameFor(model => model.CourseNumber)
+
+        </th>
+        <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
         <th>
@@ -85,6 +89,9 @@
               }
 }
 
+        </td>
+        <td style="padding-left:45px">
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).SectionNumber).@Html.DisplayFor(modelItem => Model.ElementAt(i).CourseNumber)
         </td>
         <td style="padding-left:15px">
             @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
