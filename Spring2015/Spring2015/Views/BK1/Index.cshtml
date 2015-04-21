@@ -63,28 +63,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+@for (int i = 0; i < Model.Count(); i++)
+    {
+        
+      <tr>
+        
         <td>
-            <input type="radio" name="RdBKLevel1" id="@item.BKLevel1ID" value=@item.BKLevel1ID />
+            @{if (Convert.ToInt32(TempData["BkLevel1_id"]) == Model.ElementAt(i).BKLevel1ID || (i == 0 && TempData["BKLevel1ID"] == null))
+            {
+                <input type="radio" name="RdBKLevel1" id="@Model.ElementAt(i).BKLevel1ID" value=@Model.ElementAt(i).BKLevel1ID checked="checked" />
+            }
+            else
+            {
+                <input type="radio" name="RdBKLevel1" id="@Model.ElementAt(i).BKLevel1ID" value=@Model.ElementAt(i).BKLevel1ID />
+            }
+            }  
+            
         </td>
         <td style="padding-left:45px">
-            @Html.DisplayFor(modelItem => item.NumberLevel1)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).NumberLevel1)
         </td>
         <td style="padding-left:30px">
-            @Html.DisplayFor(modelItem => item.ShortName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
         
         @*<td>
             @Html.DisplayFor(modelItem => item.Curriculum.Name)
         </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BKLevel1ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BKLevel1ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BKLevel1ID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).BKLevel1ID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).BKLevel1ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).BKLevel1ID })
         </td>
     </tr>
 }

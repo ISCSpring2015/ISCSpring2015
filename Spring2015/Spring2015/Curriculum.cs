@@ -21,7 +21,8 @@ namespace Spring2015
             this.SkillSets = new HashSet<SkillSet>();
             this.Sections = new HashSet<Section>();
         }
-
+        public int sowmya { get; set; }
+       
         public int CurriculumID { get; set; }
         [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
