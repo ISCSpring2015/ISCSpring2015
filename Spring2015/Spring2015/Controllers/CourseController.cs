@@ -89,7 +89,8 @@ namespace Spring2015.Controllers
             {
                 db.Courses.Add(course);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = course.SectionID });
+                TempData.Keep();
+                return RedirectToAction("Index");
             }
 
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
@@ -123,7 +124,8 @@ namespace Spring2015.Controllers
             {
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = course.SectionID });
+                TempData.Keep();
+                return RedirectToAction("Index");
             }
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
             return View(course);
@@ -141,6 +143,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(course);
         }
 
@@ -152,6 +155,7 @@ namespace Spring2015.Controllers
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
             db.SaveChanges();
+            TempData.Keep();
             return RedirectToAction("Index");
         }
 

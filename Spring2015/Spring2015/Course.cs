@@ -19,10 +19,12 @@ namespace Spring2015
         {
             this.Outcomes = new HashSet<Outcome>();
         }
-
+        
         public int CourseID { get; set; }
+        [Display(Name = "CourseNumber")]
         public Nullable<int> SectionID { get; set; }
         [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
+        
         public string Name { get; set; }
         [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
