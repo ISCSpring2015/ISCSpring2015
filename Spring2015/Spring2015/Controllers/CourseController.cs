@@ -65,8 +65,10 @@ namespace Spring2015.Controllers
                 int SectionId = (int)TempData["SectionID"];
                 lastcourse = db.Courses.Where(t => t.SectionID == SectionId).ToList();
                 var maxlast = lastcourse.Count() - 1;
+                //course.CourseID = lastcourse[maxlast].CourseID + 1;
                 course.CourseID = lastcourse[maxlast].CourseID + 1;
-                course.SectionID = SectionId;
+                course.SectionID = lastcourse[maxlast].SectionID;
+                //course.SectionID = SectionId;
                 TempData.Keep();
 
             }
@@ -89,7 +91,8 @@ namespace Spring2015.Controllers
             {
                 db.Courses.Add(course);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = course.SectionID });
+                TempData.Keep();
+                return RedirectToAction("Index");
             }
 
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
@@ -123,7 +126,8 @@ namespace Spring2015.Controllers
             {
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = course.SectionID });
+                TempData.Keep();
+                return RedirectToAction("Index");
             }
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
             return View(course);
@@ -141,6 +145,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(course);
         }
 
@@ -152,6 +157,7 @@ namespace Spring2015.Controllers
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
             db.SaveChanges();
+            TempData.Keep();
             return RedirectToAction("Index");
         }
 
