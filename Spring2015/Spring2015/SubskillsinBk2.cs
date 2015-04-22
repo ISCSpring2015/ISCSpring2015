@@ -20,5 +20,6 @@ namespace Spring2015
     
         public virtual BKLevel2 BKLevel2 { get; set; }
         public virtual SubSkill SubSkill { get; set; }
+        public virtual SubSkill tblSubSkill { get; set; }
     }
 }
