@@ -41,10 +41,7 @@
         @*<th>
             @Html.DisplayName("CourseNumber")
         </th>*@
-        <th style="width:100px">
-            @Html.DisplayNameFor(model => model.CourseNumber)
-
-        </th>
+   
         <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
@@ -93,12 +90,6 @@
 }
 
         </td>
-        <td style="padding-left:45px">
-            @Html.DisplayFor(modelItem => Model.ElementAt(i).SectionNumber).@Html.DisplayFor(modelItem => Model.ElementAt(i).CourseNumber)
-        </td>
-        @*<td style="padding-left:15px">
-            @Html.DisplayFor(modelItem => Model.ElementAt(i).SectionID) . @Html.DisplayFor(modelItem => Model.ElementAt(i).CourseID)
-        </td>*@
         <td >
             @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>

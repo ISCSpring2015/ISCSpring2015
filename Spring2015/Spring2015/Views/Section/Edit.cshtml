@@ -15,12 +15,8 @@
         @*<h4>Section</h4>*@
         <hr />
         @Html.ValidationSummary(true)
-
         @Html.HiddenFor(model => model.SectionID)
-     
         @Html.HiddenFor(model => model.CurriculumID)
-
-        @Html.HiddenFor(model => model.SectionNumber)
 
         @*<div class="form-group">
             @Html.LabelFor(model => model.CurriculumID, "CurriculumID", new { @class = "control-label col-md-2" })
