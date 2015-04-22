@@ -24,6 +24,7 @@ namespace Spring2015
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Purpose { get; set; }
+        public int SectionNumber { get; set; }
     
         public virtual ICollection<Course> Courses { get; set; }
         public virtual Curriculum Curriculum { get; set; }

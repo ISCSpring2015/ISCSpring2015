@@ -28,7 +28,6 @@ namespace Spring2015
         public string Name { get; set; }
         [Required(ErrorMessage = "**Please Provide ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
-    
         public virtual ICollection<BKLevel2> BKLevel2 { get; set; }
         public virtual Curriculum Curriculum { get; set; }
     }

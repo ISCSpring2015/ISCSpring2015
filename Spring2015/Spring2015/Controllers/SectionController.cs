@@ -62,7 +62,7 @@ namespace Spring2015.Controllers
             int CurriculumID = (int)TempData["CurriculumID"];
             lastsection = db.Sections.Where(t => t.CurriculumID == CurriculumID).ToList();
             var maxlast = lastsection.Count() - 1;
-            section.SectionID = lastsection[maxlast].SectionID + 1;
+            section.SectionNumber = lastsection[maxlast].SectionNumber + 1;
             section.CurriculumID = CurriculumID;
             return View(section);
         }
@@ -72,7 +72,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
+        public ActionResult Create([Bind(Include = "SectionID,SectionNumber,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
+        public ActionResult Edit([Bind(Include = "SectionID,SectionNumber,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
 
             if (ModelState.IsValid)
