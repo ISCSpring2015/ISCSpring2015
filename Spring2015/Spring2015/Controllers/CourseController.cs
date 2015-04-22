@@ -66,8 +66,7 @@ namespace Spring2015.Controllers
                 lastcourse = db.Courses.Where(t => t.SectionID == SectionId).ToList();
                 var maxlast = lastcourse.Count() - 1;
                 //course.CourseID = lastcourse[maxlast].CourseID + 1;
-                course.CourseNumber = lastcourse[maxlast].CourseNumber + 1;
-                course.SectionNumber = lastcourse[maxlast].SectionNumber;
+                course.CourseID = lastcourse[maxlast].CourseID + 1;
                 course.SectionID = lastcourse[maxlast].SectionID;
                 //course.SectionID = SectionId;
                 TempData.Keep();
@@ -86,7 +85,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,SectionID,CourseNumber,SectionNumber,Name,ShortName,CatalogCopy,Prerequisites,YearInCurriculum,Scope,Topics,Discussion")] Course course)
+        public ActionResult Create([Bind(Include = "CourseID,SectionID,Name,ShortName,CatalogCopy,Prerequisites,YearInCurriculum,Scope,Topics,Discussion")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -121,7 +120,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,SectionID,CourseNumber,SectionNumber,Name,ShortName,CatalogCopy,Prerequisites,YearInCurriculum,Scope,Topics,Discussion")] Course course)
+        public ActionResult Edit([Bind(Include = "CourseID,SectionID,Name,ShortName,CatalogCopy,Prerequisites,YearInCurriculum,Scope,Topics,Discussion")] Course course)
         {
             if (ModelState.IsValid)
             {

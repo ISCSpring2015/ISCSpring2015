@@ -46,5 +46,5 @@ using System.ComponentModel.DataAnnotations;
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[0-9a-zA-Z]{2,3})$", ErrorMessage = "please provide valid email id")]
         public string Email { get; set; }
     }
-    }
 }
+
