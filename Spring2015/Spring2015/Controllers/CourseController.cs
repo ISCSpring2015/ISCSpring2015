@@ -19,6 +19,7 @@ namespace Spring2015.Controllers
         {
             if (Convert.ToBoolean(Session["UserValid"]) == true)
             {
+                
                 int? cur_id = (id ?? 0);
                 if (TempData["SectionID"] != null && cur_id == 0)
                 {
@@ -32,8 +33,8 @@ namespace Spring2015.Controllers
                     var cur = db.Sections.Where(t => t.SectionID == cur_id).Single();
                     TempData["SectionName"] = (string)cur.Name;
                 }
-                TempData.Keep();
 
+                TempData.Keep();
                 return View("Index", Courselist);
             }
             else { return RedirectToAction("Login", "Person"); }
@@ -57,7 +58,7 @@ namespace Spring2015.Controllers
         // GET: /Course/Create
         public ActionResult Create()
         {
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name");
+            //ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name");
             Course course = new Course();
             List<Course> lastcourse = new List<Course>();
             try
@@ -69,7 +70,7 @@ namespace Spring2015.Controllers
                 course.CourseID = lastcourse[maxlast].CourseID + 1;
                 course.SectionID = lastcourse[maxlast].SectionID;
                 //course.SectionID = SectionId;
-                TempData.Keep();
+                //TempData.Keep();
 
             }
             catch (Exception e)
@@ -91,8 +92,8 @@ namespace Spring2015.Controllers
             {
                 db.Courses.Add(course);
                 db.SaveChanges();
-                TempData.Keep();
-                return RedirectToAction("Index");
+                //TempData.Keep();
+                return RedirectToAction("Index", new { @id = course.SectionID });
             }
 
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
@@ -130,7 +131,7 @@ namespace Spring2015.Controllers
 
                 return RedirectToAction("Index", new { @id = course.SectionID });
             }
-            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
+            //ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
             return View(course);
         }
 
@@ -160,8 +161,8 @@ namespace Spring2015.Controllers
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
             db.SaveChanges();
-            TempData.Keep();
-            return RedirectToAction("Index");
+            //TempData.Keep();
+            return RedirectToAction("Index", new { @id = course.SectionID });
         }
 
         protected override void Dispose(bool disposing)
