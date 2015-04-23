@@ -9,40 +9,67 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="@Url.Content("~/bundles/bootstrap")"></script>
 </head>
 
 <body>
-   
-    
+       
     <div class="mainC">
 
 
         <header>
 
             <div class="container">
-                <a href="http://localhost:58936/Person/Home">
-                    <img src="/images/logo.jpg" alt="Home">
-                </a><span style="color:white; font-size: medium; vertical-align: bottom;">
+                <div class="col-xs-12 ">
+                    <div class="col-xs-6 ">
+                        <a href="http://localhost:58936/Person/Home">
+                            <img src="/images/logo.jpg" alt="Home">
+                        </a><span style="color:white; font-size: medium; vertical-align: bottom;">
+
+                            Exam Development & Testing Services
+                        </span>
+                    </div>
+                    <div class="col-xs-6 ">
+                        <nav class="navbar navbar-default" style="background-color: #006486; border-color:#006486" >
+                            @* <a class="navbar-brand" href="#"><img src="Images/logo.jpg" alt=""></a>*@
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+
+                                </div>
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                                    <ul class="nav navbar-nav navbar-right" style="color:white;">
+                                        @*<li><a href=" #" style="color:white;">
+    Home
+</a></li>*@
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            <li>
+                                                @Html.ActionLink("Curriculum", "Index", "Curriculum", null, new { @style="color:white;"})
+                                            </li>
+                                            <li>
+                                                @Html.ActionLink("Reports", "Index", "Curriculum", null, new { @style = "color:white;" })
+                                            </li>
+                                            <li>                                            @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:white;" })</li>
+                                        }
+
+                                    </ul>
+                                </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+                 
                 
-                Exam Development & Testing Services
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Request.IsAuthenticated)
-                {                                           @Html.ActionLink("Curriculum", "Index", "Curriculum", null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
-                    @Html.ActionLink("Reports", "Index", "Curriculum", null, new { @class = "btn btn-lg btn-link", @style = "color:#FFFFFF;" })
-
-                }
-
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                @if (Request.IsAuthenticated)
-                {
-                    @Html.ActionLink("Log Out", "Logout", "Person", null, new { @style = "color:#FFFFFF;" })
-                }
-
-
-
-                </span>
             </div>
 
 </header>
@@ -59,20 +86,20 @@
             }*@
              if (ViewContext.RouteData.Values["controller"].ToString() == "Curriculum")
             {
-                @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Curriculum", ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Curriculum", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
             }
              if (ViewContext.RouteData.Values["controller"].ToString() == "SkillSet")
             {
                 @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
                 //@:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "SkillSet", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("SkillSet", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("SkillSet", "Index", ViewContext.RouteData.Values["controller"].ToString(), new { @id = TempData["CurriculumID"] },null)
             }
              if (ViewContext.RouteData.Values["controller"].ToString() == "Skill")
             {
                 @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("SkillSet:" + TempData["skillset_Name"], "Index", "SkillSet", new { @id = TempData["CurriculumID"] }, null)
                // @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Skill", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("Skill", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Skill", "Index", ViewContext.RouteData.Values["controller"].ToString(),new { @id = TempData["skillset_id"] },null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "SubSkill")
@@ -81,7 +108,7 @@
             @:> @Html.ActionLink("SkillSet:" + TempData["skillset_Name"], "Index", "SkillSet", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("Skill:" + TempData["skill_Name"], "Index", "Skill", new { @id = TempData["skillset_id"] }, null)
                // @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "SubSkill", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("SubSkill", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("SubSkill", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
             }
             
            
@@ -90,7 +117,7 @@
             {
                @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
               //  @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Section", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("Section", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Section", "Index", ViewContext.RouteData.Values["controller"].ToString(), new { @id = TempData["CurriculumID"] }, null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "Course")
@@ -98,7 +125,7 @@
                 @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("Section:" + TempData["SectionName"], "Index", "Section", new { @id = TempData["CurriculumID"] }, null)
              //   @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "Course", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("Course", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Course", "Index", ViewContext.RouteData.Values["controller"].ToString(), new { @id = TempData["SectionID"] }, null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "Outcome")
@@ -107,14 +134,14 @@
             @:> @Html.ActionLink("Section:" + TempData["SectionName"], "Index", "Section", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("Course:" + TempData["Course_Name"], "Index", "Course", new { @id = TempData["SectionID"] }, null)
                // @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "SubSkill", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("Outcome", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("Outcome", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "BK1")
             {
                 @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
               //  @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "BK1", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("BK1", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("BK1", "Index", ViewContext.RouteData.Values["controller"].ToString(), new { @id = TempData["CurriculumID"] }, null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "BK2")
@@ -122,7 +149,7 @@
                  @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("BK1:" + TempData["BkLevel1_Name"], "Index", "BK1", new { @id = TempData["CurriculumID"] }, null)
               //  @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "BK2", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("BK2", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString())
+                @:> @Html.ActionLink("BK2", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
             }
 }
 

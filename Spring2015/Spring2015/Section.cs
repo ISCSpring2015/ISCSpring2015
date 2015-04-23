@@ -11,7 +11,6 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Section
     {
@@ -22,9 +21,7 @@ namespace Spring2015
     
         public int SectionID { get; set; }
         public int CurriculumID { get; set; }
-        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public string Purpose { get; set; }
     

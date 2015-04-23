@@ -4,7 +4,7 @@
     //ViewBag.Title = "Index";
 }
 
-<h2>SkillSet</h2>
+<h2>List SkillSet</h2>
 
 <script type="text/javascript">
 
@@ -45,28 +45,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Count(); i++)
+{
+
     <tr>
+
         <td>
-            <input type="radio" name="RdSkillset" id="@item.SkillsetID" value=@item.SkillsetID />
-        </td>
+            @{if (Convert.ToInt32(TempData["SkillsetID"]) == Model.ElementAt(i).SkillsetID || (i == 0 && TempData["SkillsetID"] == null))
+{
+    <input type="radio" name="RdSkillset" id="@Model.ElementAt(i).SkillsetID" value=@Model.ElementAt(i).SkillsetID checked="checked" />
+}
+              else
+              {
+                <input type="radio" name="RdSkillset" id="@Model.ElementAt(i).SkillsetID" value=@Model.ElementAt(i).SkillsetID />
+              }
+}
+
+        
         <td style="padding-left:45px">
-            @Html.DisplayFor(modelItem => item.skillSetNum1)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).skillSetNum1)
         </td>
         <td style="padding-left:30px">
-            @Html.DisplayFor(modelItem => item.ShortName)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
-        
+
         @*<td>
-            @Html.DisplayFor(modelItem => item.Curriculum.Name)
-        </td>*@
+                @Html.DisplayFor(modelItem => item.Curriculum.Name)
+            </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SkillsetID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SkillsetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SkillsetID })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).SkillsetID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).SkillsetID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).SkillsetID })
         </td>
     </tr>
 }

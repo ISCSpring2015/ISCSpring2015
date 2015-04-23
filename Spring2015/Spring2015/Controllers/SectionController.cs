@@ -72,7 +72,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
+        public ActionResult Create([Bind(Include = "SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +107,7 @@ namespace Spring2015.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
+        public ActionResult Edit([Bind(Include = "SectionID,CurriculumID,Name,ShortName,Purpose")] Section section)
         {
 
             if (ModelState.IsValid)

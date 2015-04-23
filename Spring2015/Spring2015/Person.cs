@@ -11,11 +11,11 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
     
     public partial class Person
     {
-        public int PersonID { get; set; }
+       public int PersonID { get; set; }
         [Required(ErrorMessage = "**Please Provide your firstname", AllowEmptyStrings = false)]
         public string Firstname { get; set; }
         [Required(ErrorMessage = "**Please Provide lastname", AllowEmptyStrings = false)]
@@ -47,3 +47,4 @@ namespace Spring2015
         public string Email { get; set; }
     }
 }
+

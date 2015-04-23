@@ -17,7 +17,6 @@ namespace Spring2015
     {
         public ExamdbContext()
             : base("name=ExamdbContext")
-        
         {
         }
     

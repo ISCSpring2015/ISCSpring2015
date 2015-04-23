@@ -38,6 +38,10 @@
         <th>
 
         </th>
+        @*<th>
+            @Html.DisplayName("CourseNumber")
+        </th>*@
+   
         <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
@@ -69,47 +73,58 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
+    @for (int i = 0; i < Model.Count(); i++)
+{
+
+    <tr>
+
+        <td>
+            @{if (Convert.ToInt32(TempData["CourseID"]) == Model.ElementAt(i).CourseID || (i == 0 && TempData["CourseID"] == null))
+{
+    <input type="radio" name="RdCourse" id="@Model.ElementAt(i).CourseID" value=@Model.ElementAt(i).CourseID checked="checked" />
+}
+              else
+              {
+                <input type="radio" name="RdCourse" id="@Model.ElementAt(i).CourseID" value=@Model.ElementAt(i).CourseID />
+              }
+}
+
+        </td>
+        <td >
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
+        </td>
+
+        @*<td>
+                @Html.DisplayFor(modelItem => item.CatalogCopy)
+            </td>
             <td>
-                <input type="radio" name="RdCourse" id="@item.CourseID" value=@item.CourseID />
-            </td>
-            <td style="padding-left:15px">
-                @Html.DisplayFor(modelItem => item.ShortName)
+                @Html.DisplayFor(modelItem => item.Prerequisites)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.YearInCurriculum)
             </td>
-            
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.CatalogCopy)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Prerequisites)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.YearInCurriculum)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Scope)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Topics)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Discussion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Section.Name)
-                </td>*@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CourseID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CourseID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CourseID })
+                @Html.DisplayFor(modelItem => item.Scope)
             </td>
-        </tr>
-    }
+            <td>
+                @Html.DisplayFor(modelItem => item.Topics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discussion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section.Name)
+            </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ElementAt(i).CourseID }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.ElementAt(i).CourseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ElementAt(i).CourseID })
+        </td>
+    </tr>
+}
 
 </table>
 
