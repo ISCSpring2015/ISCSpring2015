@@ -11,7 +11,6 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class SubSkill
     {
@@ -26,11 +25,9 @@ namespace Spring2015
         public int OutcomeID { get; set; }
         public int BKLevel2Id { get; set; }
         public int SkillSetNum1 { get; set; }
-        [Display(Name = "SubSkillNumber")]
+        public int SkillNum2 { get; set; }
         public int SubSkillNum3 { get; set; }
-        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public string JobAdWords { get; set; }
     

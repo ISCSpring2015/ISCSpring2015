@@ -38,6 +38,10 @@
         <th>
 
         </th>
+        @*<th>
+            @Html.DisplayName("CourseNumber")
+        </th>*@
+   
         <th style="width:100px">
             @Html.DisplayNameFor(model => model.ShortName)
         </th>
@@ -86,7 +90,7 @@
 }
 
         </td>
-        <td style="padding-left:15px">
+        <td >
             @Html.DisplayFor(modelItem => Model.ElementAt(i).ShortName)
         </td>
         <td>

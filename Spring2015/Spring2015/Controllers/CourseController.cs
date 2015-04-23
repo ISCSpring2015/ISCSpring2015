@@ -65,8 +65,10 @@ namespace Spring2015.Controllers
                 int SectionId = (int)TempData["SectionID"];
                 lastcourse = db.Courses.Where(t => t.SectionID == SectionId).ToList();
                 var maxlast = lastcourse.Count() - 1;
+                //course.CourseID = lastcourse[maxlast].CourseID + 1;
                 course.CourseID = lastcourse[maxlast].CourseID + 1;
-                course.SectionID = SectionId;
+                course.SectionID = lastcourse[maxlast].SectionID;
+                //course.SectionID = SectionId;
                 TempData.Keep();
 
             }
@@ -89,7 +91,8 @@ namespace Spring2015.Controllers
             {
                 db.Courses.Add(course);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { @id = course.SectionID });
+                TempData.Keep();
+                return RedirectToAction("Index");
             }
 
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
@@ -119,10 +122,12 @@ namespace Spring2015.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CourseID,SectionID,Name,ShortName,CatalogCopy,Prerequisites,YearInCurriculum,Scope,Topics,Discussion")] Course course)
         {
+           
             if (ModelState.IsValid)
             {
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index", new { @id = course.SectionID });
             }
             ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
@@ -132,6 +137,7 @@ namespace Spring2015.Controllers
         // GET: /Course/Delete/5
         public ActionResult Delete(int? id)
         {
+            TempData.Keep();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -141,7 +147,9 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(course);
+            
         }
 
         // POST: /Course/Delete/5
@@ -152,6 +160,7 @@ namespace Spring2015.Controllers
             Course course = db.Courses.Find(id);
             db.Courses.Remove(course);
             db.SaveChanges();
+            TempData.Keep();
             return RedirectToAction("Index");
         }
 

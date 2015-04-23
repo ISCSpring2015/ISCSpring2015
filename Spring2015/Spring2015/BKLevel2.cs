@@ -11,7 +11,6 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class BKLevel2
     {
@@ -23,12 +22,9 @@ namespace Spring2015
     
         public int BKLevel2ID { get; set; }
         public int BKLevel1ID { get; set; }
-        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "**Please Provide your Shortname", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public int NumberLevel1 { get; set; }
-        [Display(Name = "BkLevel2Number")]
         public int NumberLevel2 { get; set; }
     
         public virtual BKLevel1 BKLevel1 { get; set; }
