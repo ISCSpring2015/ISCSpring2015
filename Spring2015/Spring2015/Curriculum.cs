@@ -12,7 +12,7 @@ namespace Spring2015
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Curriculum
     {
         public Curriculum()
@@ -21,14 +21,14 @@ namespace Spring2015
             this.SkillSets = new HashSet<SkillSet>();
             this.Sections = new HashSet<Section>();
         }
-        public int sowmya { get; set; }
-       
+    
         public int CurriculumID { get; set; }
         [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
         [Required(ErrorMessage = "**Please Provide your Short Name", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public string Purpose { get; set; }
+    
         public virtual ICollection<BKLevel1> BKLevel1 { get; set; }
         public virtual ICollection<SkillSet> SkillSets { get; set; }
         public virtual ICollection<Section> Sections { get; set; }

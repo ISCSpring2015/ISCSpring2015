@@ -25,7 +25,7 @@ namespace Spring2015
         public string Name { get; set; }
         [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
-         [Display(Name = "SkillSetNumber")]
+        [Display(Name = "SkillSetNumber")]
         public int skillSetNum1 { get; set; }
         public int CurriculumID { get; set; }
     
