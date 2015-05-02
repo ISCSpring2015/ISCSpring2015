@@ -28,6 +28,7 @@ namespace Spring2015
         public string ShortName { get; set; }
         public string CatalogCopy { get; set; }
         public string Prerequisites { get; set; }
+        [Required(ErrorMessage = "**Please Provide your YearInCurriculum", AllowEmptyStrings = false)]
         public string YearInCurriculum { get; set; }
         public string Scope { get; set; }
         public string Topics { get; set; }
