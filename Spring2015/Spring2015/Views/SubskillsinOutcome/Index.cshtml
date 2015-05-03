@@ -1,0 +1,123 @@
+﻿@model Spring2015.Models.Subskills_Outcome
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.DropDownList("ddl_Outcome", new SelectList((System.Collections.IEnumerable)Model.Outcomes, "OutcomeID", "ShortName"), new { @class = "ddl_Outcome", @id = "ddl_Outcome" })
+</p>
+<table class="table">,
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Subskills[0].OutcomeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].BKLevel2Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].SkillSetNum1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].SkillNum2)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.Subskills[0].SubSkillNum3)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].ShortName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Subskills[0].JobAdWords)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].Skill.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subskills[0].SubskillsinBk2.SubskillsBk2ID)
+        </th>
+        <th></th>*@
+    </tr>
+    @if (Model.subskilloutcome[0].SubskillsID > 0) { 
+    foreach (var item in Model.subskilloutcome)
+    {
+       <tr>
+           <td>
+               @Html.HiddenFor(modelItem => item.SubSkillNum3)
+
+               <input type="checkbox" name="chkSkill" id="@item.SubskillsID" value=@item.SubskillsID checked="checked" />
+           </td>
+           <td>
+               @Html.DisplayFor(modelItem => item.Name)
+           </td>
+           <td>
+               @Html.DisplayFor(modelItem => item.ShortName)
+           </td>
+       </tr> 
+    }}
+@foreach (var item in Model.Subskills) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.OutcomeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BKLevel2Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SkillSetNum1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SkillNum2)
+        </td>*@
+        <td>
+            @Html.HiddenFor(modelItem => item.SubSkillNum3)
+            <input type="checkbox" name="chkSkill" id="@item.SubskillsID" value=@item.SubskillsID />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.JobAdWords)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skill.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubskillsinBk2.SubskillsBk2ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SubskillsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SubskillsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SubskillsID })
+        </td>*@
+    </tr>
+}
+
+</table>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".ddl_Outcome").change(function () {
+        debugger;
+        var strSelected = "";
+        $(".ddl_Outcome option:selected").each(function () {
+            strSelected += $(this)[0].value;
+        });
+        var url = "/SubskillsinOutcome/index?outcomeid=" + strSelected;
+        window.location = url;
+        //$.get(url, function (data) {
+        //    if (data.ok)
+        //        window.location = returndata.newurl;
+        //    // do something if necessary
+        //});
+    });
+});
+</script>
