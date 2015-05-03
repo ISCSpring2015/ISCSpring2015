@@ -11,7 +11,6 @@ namespace Spring2015
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Outcome
     {
@@ -23,13 +22,9 @@ namespace Spring2015
     
         public int OutcomeID { get; set; }
         public int CourseID { get; set; }
-        [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
         public Nullable<int> DepthOfKnowledge { get; set; }
-        [Required(ErrorMessage = "**Please Provide your LearningUnit", AllowEmptyStrings = false)]
-        [Range(0, int.MaxValue, ErrorMessage = "Value must be between 0 and 250 and must be float")]
         public string LearningUnitNumber { get; set; }
     
         public virtual Course Course { get; set; }

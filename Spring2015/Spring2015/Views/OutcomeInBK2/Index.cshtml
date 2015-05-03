@@ -1,0 +1,134 @@
+﻿@*@model IEnumerable<Spring2015.OutcomeinBK2>*@
+  
+@model Spring2015.Models.Outcome_BKLevel2
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>OutcomeInBKLevel2</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.DropDownList("ddl_BKLevel2", new SelectList((System.Collections.IEnumerable)Model.BKLevel2, "BKLevel2ID", "ShortName"), new { @class = "ddl_BKLevel2", @id = "ddl_BKLevel2" })
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.BKLevel2.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Outcome.ShortName)
+        </th>*@
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Outcomes[0].ShortName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Outcomes[0].Name)
+        </th>
+        
+        
+    </tr>
+
+@*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BKLevel2.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Outcome.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OutcomeBK2ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OutcomeBK2ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OutcomeBK2ID })
+        </td>
+    </tr>
+}*@
+    @if (Model.OutcomeinBk2[0].OutcomeID > 0)
+    {
+        foreach (var item in Model.OutcomeinBk2)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(modelItem => item.LearningUnitNumber)
+
+                    <input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID checked="checked" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                
+            </tr>
+        }
+    }
+
+    @foreach (var item in Model.Outcomes)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.OutcomeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BKLevel2Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkillSetNum1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SkillNum2)
+                </td>*@
+            <td>
+                @Html.HiddenFor(modelItem => item.LearningUnitNumber)
+                <input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.JobAdWords)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubskillsinBk2.SubskillsBk2ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.SubskillsID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.SubskillsID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.SubskillsID })
+                </td>*@
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".ddl_BKLevel2").change(function () {
+            debugger;
+            var strSelected = "";
+            $(".ddl_BKLevel2 option:selected").each(function () {
+                strSelected += $(this)[0].value;
+            });
+            var url = "/OutcomeInBK2/index?outcomeid=" + strSelected;
+            window.location = url;
+            //$.get(url, function (data) {
+            //    if (data.ok)
+            //        window.location = returndata.newurl;
+            //    // do something if necessary
+            //});
+        });
+    });
+</script>

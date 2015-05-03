@@ -7,6 +7,7 @@ namespace Spring2015.Models
 {
     public class Subskills_Outcome
     {
+        //public System.Collections.IEnumerable BKLevel2;
         public List<Outcome> Outcomes { get; set; }
         public List<SubSkill> Subskills { get; set; }
         public List<SubSkill> subskilloutcome { get; set; }
