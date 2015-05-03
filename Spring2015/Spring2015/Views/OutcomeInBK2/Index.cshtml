@@ -1,9 +1,4 @@
-﻿@*@model IEnumerable<Spring2015.OutcomeinBK2>*@
-  
-@model Spring2015.Models.Outcome_BKLevel2
-
-
-
+﻿@model Spring2015.Models.Outcome_BKLevel2
 
 @{
     ViewBag.Title = "Index";
@@ -13,8 +8,10 @@
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
-    @Html.DropDownList("ddl_BKLevel2", new SelectList((System.Collections.IEnumerable)Model.BKLevel2, "BKLevel2ID", "ShortName"), new { @class = "ddl_BKLevel2", @id = "ddl_BKLevel2" })
+    <h2>BKLevel2</h2>
+    @Html.DropDownList("ddl_BKLevel2", new SelectList((System.Collections.IEnumerable)Model.BKLevel2, "BKLevel2ID", "Name", ViewBag.bklevel2id), new { @class = "ddl_BKLevel2", @id = "ddl_BKLevel2" })
 </p>
+<h2>Outcome</h2>
 <table class="table">
     <tr>
         @*<th>
@@ -57,7 +54,8 @@
                 <td>
                     @Html.HiddenFor(modelItem => item.LearningUnitNumber)
 
-                    <input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID checked="checked" />
+                    @*<input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID checked="checked" />*@
+                    <input type="checkbox" name="chkSkill" class="chkSkill" onchange="chk_outcome_select(@item.OutcomeID);" id="@item.OutcomeID" value=@item.OutcomeID checked="checked" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ShortName)
@@ -87,7 +85,8 @@
                 </td>*@
             <td>
                 @Html.HiddenFor(modelItem => item.LearningUnitNumber)
-                <input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID />
+                @*<input type="checkbox" name="chkSkill" id="@item.OutcomeID" value=@item.OutcomeID />*@
+                <input type="checkbox" name="chkSkill" onchange="chk_outcome_select(@item.OutcomeID);" id="@item.OutcomeID" value=@item.OutcomeID />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ShortName)
@@ -122,7 +121,7 @@
             $(".ddl_BKLevel2 option:selected").each(function () {
                 strSelected += $(this)[0].value;
             });
-            var url = "/OutcomeInBK2/index?outcomeid=" + strSelected;
+            var url = "/OutcomeInBK2/index?bklevel2id=" + strSelected;
             window.location = url;
             //$.get(url, function (data) {
             //    if (data.ok)
@@ -131,4 +130,15 @@
             //});
         });
     });
+
+function chk_outcome_select(selectedoutcome){
+        debugger;
+        var strSelected = "";
+        $(".ddl_BKLevel2 option:selected").each(function () {
+            strSelected += $(this)[0].value;
+        });
+        var url = "/OutcomeInBK2/changes?bklevel2id=" + strSelected+"&outcomeid="+selectedoutcome;
+        window.location = url;
+        
+    }
 </script>

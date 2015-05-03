@@ -18,8 +18,6 @@ namespace Spring2015.Controllers
         // GET: /OutcomeInBK2/
         public ActionResult Index(int? bklevel2id)
         {
-            //var outcomeinbk2 = db.OutcomeinBK2.Include(o => o.BKLevel2).Include(o => o.Outcome);
-            //return View(outcomeinbk2.ToList());
             int bklevel2 = 0;
             if (bklevel2id != null)
                 bklevel2 = (int)bklevel2id;
@@ -48,7 +46,7 @@ namespace Spring2015.Controllers
 
                OutcomeID = m.u.OutcomeID,
                OutcomeinBK2 = m.u.OutcomeinBK2
-           });
+           }).OrderBy(x=>x.ShortName);
                 outcome_bklevel2.OutcomeinBk2 = outcomebklevel2.ToList();
 
             }
@@ -66,9 +64,11 @@ namespace Spring2015.Controllers
             //                                   Value = i.OutcomeID.ToString()
             //                               });
             //ViewBag["outcomelist"] = outcomeslist;
+            outcome_bklevel2.Outcomes = outcome_bklevel2.Outcomes.Where(m => !outcome_bklevel2.OutcomeinBk2.Any(h => h.OutcomeID == m.OutcomeID)).OrderBy(x => x.ShortName).ToList();
             return View(outcome_bklevel2);
         
         }
+        
 
         // GET: /OutcomeInBK2/Details/5
         public ActionResult Details(int? id)
@@ -84,7 +84,27 @@ namespace Spring2015.Controllers
             }
             return View(outcome);
         }
+        public ActionResult changes(int bklevel2id, int outcomeid)
+        {
+            OutcomeinBK2 outcomeinbk2 = new OutcomeinBK2();
+            outcomeinbk2.OutcomeID = outcomeid;
+            outcomeinbk2.BKLevelID = bklevel2id;
+            List<OutcomeinBK2> lst_outcome_bklevel2 = new List<OutcomeinBK2>();
+            lst_outcome_bklevel2 = db.OutcomeinBK2.Where(m => m.OutcomeID == outcomeid && m.BKLevelID == bklevel2id).ToList();
+            if (lst_outcome_bklevel2.Count() == 0)
+                db.OutcomeinBK2.Add(outcomeinbk2);
+            else
+            {
+                foreach (var item in lst_outcome_bklevel2)
+                {
+                    db.OutcomeinBK2.Remove(item);
+                }
+            }
 
+            db.SaveChanges();
+
+            return RedirectToAction("Index", new { @outcomeid = outcomeid });
+        }
         // GET: /OutcomeInBK2/Create
         public ActionResult Create()
         {
