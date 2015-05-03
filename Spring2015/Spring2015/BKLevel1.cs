@@ -24,6 +24,7 @@ namespace Spring2015
         public int NumberLevel1 { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
+    
         public virtual ICollection<BKLevel2> BKLevel2 { get; set; }
         public virtual Curriculum Curriculum { get; set; }
     }
