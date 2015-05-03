@@ -8,8 +8,10 @@
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
+    <h2>Outcome</h2>
     @Html.DropDownList("ddl_Outcome", new SelectList((System.Collections.IEnumerable)Model.Outcomes, "OutcomeID", "Name", ViewBag.outcomeid), new { @class = "ddl_Outcome", @id = "ddl_Outcome" })
 </p>
+<h2>Subskills</h2>
 <table class="table">
     <tr>
         @*<th>
@@ -48,9 +50,11 @@
     foreach (var item in Model.subskilloutcome)
     {
        <tr>
-           <td>
-               @Html.HiddenFor(modelItem => item.SubSkillNum3)
 
+           <td>
+
+               @Html.HiddenFor(modelItem => item.SubSkillNum3)
+               
                <input type="checkbox" name="chkSkill" class="chkSkill" onchange="chk_skill_select(@item.SubskillsID);" id="@item.SubskillsID" value=@item.SubskillsID checked="checked" />
            </td>
            <td>
