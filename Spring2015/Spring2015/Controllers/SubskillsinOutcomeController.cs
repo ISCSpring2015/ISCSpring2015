@@ -21,7 +21,7 @@ namespace Spring2015.Controllers
             int outcome = 0;
             if (outcomeid != null)
                 outcome = (int)outcomeid;
-            //ViewBag["outcomeid"] = outcome.ToString();
+            ViewBag.outcomeid = outcome.ToString();
             Subskills_Outcome subskills_outcome = new Subskills_Outcome();
             subskills_outcome.Subskills = db.SubSkills.ToList();
             subskills_outcome.Outcomes = db.Outcomes.ToList();
@@ -49,8 +49,8 @@ namespace Spring2015.Controllers
 
                SubskillsID = m.u.SubskillsID,
                SubskillsinBk2 = m.u.SubskillsinBk2
-           });
-                subskills_outcome.subskilloutcome = subskilloutcome.ToList();
+           }).OrderBy(x=>x.ShortName);
+                subskills_outcome.subskilloutcome = subskilloutcome.ToList(); 
 
             }
             else
@@ -60,6 +60,11 @@ namespace Spring2015.Controllers
                 subskilloutcome.Add(blackskill);
                 subskills_outcome.subskilloutcome = subskilloutcome.ToList();
             }
+    //        foreach (var item in subskills_outcome.subskilloutcome )
+    //{
+            subskills_outcome.Subskills = subskills_outcome.Subskills.Where(m => !subskills_outcome.subskilloutcome.Any(h => h.SubskillsID == m.SubskillsID)).OrderBy(x => x.ShortName).ToList();
+    //}     
+                
             //IEnumerable<SelectListItem> outcomeslist = db.Outcomes
             //                               .Select(i => new SelectListItem()
             //                               {
@@ -86,11 +91,25 @@ namespace Spring2015.Controllers
         }
 
         // GET: /SubskillsinOutcome/Create
-        public ActionResult Create()
+        public ActionResult changes(int outcomeid, int subskillid)
         {
-            ViewBag.SkillID = new SelectList(db.Skills, "SkillID", "Name");
-            ViewBag.SubskillsID = new SelectList(db.SubskillsinBk2, "SubskillsBk2ID", "SubskillsBk2ID");
-            return View();
+            SubskillsinOutcome subskiloutcome = new SubskillsinOutcome();
+            subskiloutcome.OutcomeID = outcomeid;
+            subskiloutcome.SubskillsID = subskillid;
+            List<SubskillsinOutcome> lst_subskill_outcome = new List<SubskillsinOutcome>();
+            lst_subskill_outcome = db.SubskillsinOutcomes.Where(m => m.SubskillsID == subskillid && m.OutcomeID == outcomeid).ToList();
+            if (lst_subskill_outcome.Count() == 0)
+                db.SubskillsinOutcomes.Add(subskiloutcome);
+            else {
+                foreach (var item in lst_subskill_outcome)
+                {
+                     db.SubskillsinOutcomes.Remove(item);
+                }
+            }
+               
+            db.SaveChanges();
+            
+            return RedirectToAction("Index", new { @outcomeid = outcomeid });
         }
 
         // POST: /SubskillsinOutcome/Create

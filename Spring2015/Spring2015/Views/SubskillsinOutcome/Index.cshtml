@@ -4,13 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>SubSkillsinOutcome</h2>
 
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
-    @Html.DropDownList("ddl_Outcome", new SelectList((System.Collections.IEnumerable)Model.Outcomes, "OutcomeID", "ShortName"), new { @class = "ddl_Outcome", @id = "ddl_Outcome" })
+    @Html.DropDownList("ddl_Outcome", new SelectList((System.Collections.IEnumerable)Model.Outcomes, "OutcomeID", "Name", ViewBag.outcomeid), new { @class = "ddl_Outcome", @id = "ddl_Outcome" })
 </p>
-<table class="table">,
+<table class="table">
     <tr>
         @*<th>
             @Html.DisplayNameFor(model => model.Subskills[0].OutcomeID)
@@ -51,7 +51,7 @@
            <td>
                @Html.HiddenFor(modelItem => item.SubSkillNum3)
 
-               <input type="checkbox" name="chkSkill" id="@item.SubskillsID" value=@item.SubskillsID checked="checked" />
+               <input type="checkbox" name="chkSkill" class="chkSkill" onchange="chk_skill_select(@item.SubskillsID);" id="@item.SubskillsID" value=@item.SubskillsID checked="checked" />
            </td>
            <td>
                @Html.DisplayFor(modelItem => item.Name)
@@ -77,7 +77,7 @@
         </td>*@
         <td>
             @Html.HiddenFor(modelItem => item.SubSkillNum3)
-            <input type="checkbox" name="chkSkill" id="@item.SubskillsID" value=@item.SubskillsID />
+            <input type="checkbox" name="chkSkill" onchange="chk_skill_select(@item.SubskillsID);" id="@item.SubskillsID" value=@item.SubskillsID />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -120,4 +120,14 @@ $(document).ready(function() {
         //});
     });
 });
+function chk_skill_select(selectedsubskill){
+    debugger;
+    var strSelected = "";
+    $(".ddl_Outcome option:selected").each(function () {
+        strSelected += $(this)[0].value;
+    });
+    var url = "/SubskillsinOutcome/changes?outcomeid=" + strSelected+"&subskillid="+selectedsubskill;
+    window.location = url;
+        
+}
 </script>

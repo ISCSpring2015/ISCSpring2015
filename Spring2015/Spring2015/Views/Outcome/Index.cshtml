@@ -14,13 +14,13 @@
         // alert();
         // var skillcurr = $("form:radio:checked").val();
         var radioanswer = 0;
-        if ($('input[name=RdSkill]:checked').val() != null) {
-            radioanswer = $('input[name=RdSkill]:checked').val();
+        if ($('input[name=RdOutcome]:checked').val() != null) {
+            radioanswer = $('input[name=RdOutcome]:checked').val();
         }
         //var selectedId = $('#hdnSelectedId').val();
         // alert(radioanswer);
         if (radioanswer > 0) {
-            window.location.href = "/SubSkillinOutcome/Index/" ;
+            window.location.href = "/SubskillsinOutcome/index?outcomeid=" + radioanswer;
         }
     }
     </script>
