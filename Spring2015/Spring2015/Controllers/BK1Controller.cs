@@ -143,6 +143,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(bklevel1);
         }
 
