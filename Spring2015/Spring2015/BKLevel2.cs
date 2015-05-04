@@ -27,9 +27,9 @@ namespace Spring2015
         public string Name { get; set; }
         [Required(ErrorMessage = "**Please Provide your ShortName", AllowEmptyStrings = false)]
         public string ShortName { get; set; }
-        [Required(ErrorMessage = "**Please Provide your NumberLevel1", AllowEmptyStrings = false)]
+        [Display(Name = "BKLevel1Number")]
         public int NumberLevel1 { get; set; }
-        [Required(ErrorMessage = "**Please Provide your NumberLevel2", AllowEmptyStrings = false)]
+        [Display(Name = "BKLevel2Number")]
         public int NumberLevel2 { get; set; }
     
         public virtual BKLevel1 BKLevel1 { get; set; }

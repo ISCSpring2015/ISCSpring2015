@@ -22,6 +22,7 @@ namespace Spring2015
     
         public int BKLevel1ID { get; set; }
         public int CurriculumID { get; set; }
+        [Display(Name = "BKLevel1Number")]
         public int NumberLevel1 { get; set; }
           [Required(ErrorMessage = "**Please Provide your Name", AllowEmptyStrings = false)]
         public string Name { get; set; }
