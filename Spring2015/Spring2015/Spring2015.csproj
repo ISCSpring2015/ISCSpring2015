@@ -187,6 +187,7 @@
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SkillSetController.cs" />
     <Compile Include="Controllers\SubSkillController.cs" />
+    <Compile Include="Controllers\SubskillsinBk2Controller.cs" />
     <Compile Include="Controllers\SubskillsinOutcomeController.cs" />
     <Compile Include="Course.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
@@ -219,6 +220,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Outcome_BKLevel2.cs" />
     <Compile Include="Models\SubskillsinOutcome.cs" />
+    <Compile Include="Models\Subskills_Bk2.cs" />
     <Compile Include="Outcome.cs">
       <DependentUpon>ExamDataModel.tt</DependentUpon>
     </Compile>
@@ -373,6 +375,7 @@
     <Content Include="Views\Person\Home.cshtml" />
     <Content Include="Views\SubskillsinOutcome\Index.cshtml" />
     <Content Include="Views\OutcomeInBK2\Index.cshtml" />
+    <Content Include="Views\SubskillsinBk2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

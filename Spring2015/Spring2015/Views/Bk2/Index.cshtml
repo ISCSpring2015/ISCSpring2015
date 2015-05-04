@@ -33,7 +33,21 @@
         }
     }
 </script>
-
+<script type="text/javascript">
+    function getValue1() {
+        // alert();
+        // var skillcurr = $("form:radio:checked").val();
+        var radioanswer = 0;
+        if ($('input[name=RdBKLevel2]:checked').val() != null) {
+            radioanswer = $('input[name=RdBKLevel2]:checked').val();
+        }
+        //var selectedId = $('#hdnSelectedId').val();
+        // alert(radioanswer);
+        if (radioanswer > 0) {
+            window.location.href = "/SubskillsinBk2/Index/";
+        }
+    }
+</script>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -105,5 +119,6 @@
 <div style="text-align: center;">
 
     <input id="btnOutcomeInBK2" type="button" name="btnOutcomeInBK2" value="OutcomeInBK2" class="btn btn-primary" onclick="getValue();" />
+    <input id="btnsubskillsinBk2" type="button" name="btnsubskillsinBk2" value="SubKillsInBk2" class="btn btn-primary" onclick="getValue1();" />
     @*@Html.ActionLink("Skill", "Index", new { id = 1 }, new { @class = "btn btn-primary", @type = "button" })*@
 </div>
