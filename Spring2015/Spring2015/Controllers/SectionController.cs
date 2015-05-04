@@ -24,6 +24,7 @@ namespace Spring2015.Controllers
                 {
                     cur_id = (int)TempData["CurriculumID"];
                 }
+                else { TempData["CurriculumID"] = cur_id; }
                 List<Section> Sectionlist = new List<Section>();
                 if (cur_id > 0)
                 {
@@ -51,6 +52,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(section);
         }
 
@@ -116,14 +118,14 @@ namespace Spring2015.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", new { @id = section.CurriculumID });
             }
-            ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
+            //ViewBag.CurriculumID = new SelectList(db.Curricula, "CurriculumID", "Name", section.CurriculumID);
             return View(section);
         }
 
         // GET: /Section/Delete/5
         public ActionResult Delete(int? id)
         {
-            TempData.Keep();
+            
 
             if (id == null)
             {
@@ -134,6 +136,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(section);
         }
 

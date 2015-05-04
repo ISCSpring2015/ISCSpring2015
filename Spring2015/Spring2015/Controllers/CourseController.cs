@@ -25,10 +25,11 @@ namespace Spring2015.Controllers
                 {
                     cur_id = (int)TempData["SectionID"];
                 }
+                else { TempData["SectionID"] = cur_id; }
                 List<Course> Courselist = new List<Course>();
                 if (cur_id > 0)
                 {
-                    TempData["SectionID"] = cur_id;
+                  //  TempData["SectionID"] = cur_id;
                     Courselist = db.Courses.Where(t => t.SectionID == cur_id).ToList();
                     var cur = db.Sections.Where(t => t.SectionID == cur_id).Single();
                     TempData["SectionName"] = (string)cur.Name;
@@ -113,7 +114,8 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
-            //ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
+            TempData.Keep();
             return View(course);
         }
 
@@ -129,10 +131,10 @@ namespace Spring2015.Controllers
             {
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
-
+                TempData.Keep();
                 return RedirectToAction("Index", new { @id = course.SectionID });
             }
-            //ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
+            ViewBag.SectionID = new SelectList(db.Sections, "SectionID", "Name", course.SectionID);
             return View(course);
         }
 

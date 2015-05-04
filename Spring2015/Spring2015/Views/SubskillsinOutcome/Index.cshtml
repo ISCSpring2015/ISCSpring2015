@@ -134,4 +134,16 @@ function chk_skill_select(selectedsubskill){
     window.location = url;
         
 }
+
+function closeWindow()
+{
+    window.close();
+
+}
 </script>
+@Html.Hidden("hdn_selected_Section", 0)
+
+<div style="text-align: center;">
+
+    <input id="Close" type="button" name="btnClose" value="Close" class="btn btn-primary" onclick="closeWindow();" />
+</div> 

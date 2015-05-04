@@ -134,7 +134,7 @@
             @:> @Html.ActionLink("Section:" + TempData["SectionName"], "Index", "Section", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("Course:" + TempData["Course_Name"], "Index", "Course", new { @id = TempData["SectionID"] }, null)
                // @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "SubSkill", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("Outcome", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
+                @:> @Html.ActionLink("Outcome", "Index", ViewContext.RouteData.Values["controller"].ToString(), null)
             }
             
             if (ViewContext.RouteData.Values["controller"].ToString() == "BK1")
@@ -149,7 +149,7 @@
                  @:> @Html.ActionLink("Curriculum:" + TempData["CurriculumName"], "Index", "Curriculum", new { @id = TempData["CurriculumID"] }, null)
                 @:> @Html.ActionLink("BK1:" + TempData["BkLevel1_Name"], "Index", "BK1", new { @id = TempData["CurriculumID"] }, null)
               //  @:> @Html.ActionLink(ViewContext.RouteData.Values["controller"].ToString(), "BK2", ViewContext.RouteData.Values["controller"].ToString())
-                @:> @Html.ActionLink("BK2", "Index", ViewContext.RouteData.Values["controller"].ToString(),null,null)
+                @:> @Html.ActionLink("BK2", "Index", ViewContext.RouteData.Values["controller"].ToString(),null)
             }
 }
 

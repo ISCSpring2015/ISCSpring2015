@@ -64,12 +64,14 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(outcome);
         }
 
         // GET: /Outcome/Create
         public ActionResult Create()
         {
+            ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Name");
             Outcome outcome = new Outcome();
             List<Outcome> lastOutcome = new List<Outcome>();
             int Courseid = (int)TempData["Course_id"];
@@ -77,6 +79,7 @@ namespace Spring2015.Controllers
             var maxlast = lastOutcome.Count() - 1;
             outcome.OutcomeID = lastOutcome[maxlast].OutcomeID + 1;
             outcome.CourseID = Courseid;
+            TempData.Keep();
             return View(outcome);
             
             
@@ -100,6 +103,7 @@ namespace Spring2015.Controllers
             }
 
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Name", outcome.CourseID);
+           // ViewBag.SubskillsID = new SelectList(db.SubskillsinBk2, "SubskillsBk2ID", "SubskillsBk2ID", subskill.SubskillsID);
             return View(outcome);
         }
 
@@ -116,6 +120,7 @@ namespace Spring2015.Controllers
                 return HttpNotFound();
             }
             ViewBag.CourseID = new SelectList(db.Courses, "CourseID", "Name", outcome.CourseID);
+            TempData.Keep();
             return View(outcome);
         }
 
@@ -148,6 +153,7 @@ namespace Spring2015.Controllers
             {
                 return HttpNotFound();
             }
+            TempData.Keep();
             return View(outcome);
         }
 
